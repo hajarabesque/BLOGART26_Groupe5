@@ -1,27 +1,48 @@
 <?php
+// ==========================================================
+// 1. LOGIQUE DE TRAITEMENT (BACKEND)
+// ==========================================================
+
+// Inclusion du fichier header qui contient la connexion à la base de données ($db)
 include '../../header.php';
 
-$results = [];
-$keyword_typed = "";
+// Initialisation des variables pour éviter les erreurs "undefined variable" au premier chargement
+$results = [];       // Contiendra la liste des articles trouvés
+$keyword_typed = ""; // Contiendra le mot-clé tapé par l'utilisateur
 
+/**
+ * VÉRIFICATION DE LA SOUMISSION DU FORMULAIRE :
+ * - isset($_POST['keyword']) : Est-ce que le formulaire a été envoyé ?
+ * - !empty(trim(...)) : Est-ce que le champ n'est pas vide (on enlève les espaces inutiles) ?
+ */
 if (isset($_POST['keyword']) && !empty(trim($_POST['keyword']))) {
+    
+    // Nettoyage de la saisie utilisateur pour éviter les failles XSS
     $keyword_typed = htmlspecialchars($_POST['keyword']);
+    
+    // Préparation du terme pour SQL avec les jokers "%" (ex: "rock" devient "%rock%")
+    // Cela permet de trouver le mot n'importe où dans la phrase.
     $search_term = "%$keyword_typed%";
     
-    // On simplifie la requête pour éviter l'erreur "Column not found"
-    // On cherche dans le titre et le chapeau (colonnes confirmées)
+    /**
+     * PRÉPARATION DE LA REQUÊTE SQL :
+     * - On sélectionne tout (*) de la table ARTICLE.
+     * - LIKE ? : Permet de comparer une colonne avec notre mot-clé.
+     * - OR : On cherche soit dans le titre, soit dans le chapeau.
+     */
     $sql = "SELECT * FROM ARTICLE 
             WHERE libTitrArt LIKE ? 
             OR libChapoArt LIKE ?";
             
+    // Utilisation d'une requête préparée pour éviter les injections SQL (SÉCURITÉ)
     $query = $db->prepare($sql);
 
-    // On exécute avec 2 paramètres car on a 2 "?"
+    // Exécution de la requête en passant le mot-clé deux fois (pour les deux "?" du SQL)
     $query->execute([$search_term, $search_term]);
     
-    // IMPORTANT : On récupère les données dans la variable $results
+    // fetchAll() : Transforme les résultats de la base de données en un tableau PHP exploitable
     $results = $query->fetchAll();
-} // Fermeture du IF
+} 
 ?>
 
 <link rel="stylesheet" href="/src/css/search.css">
@@ -46,10 +67,12 @@ if (isset($_POST['keyword']) && !empty(trim($_POST['keyword']))) {
 
     <div class="row mt-5">
         <div class="col-md-10 offset-md-1">
+            
             <?php if (!empty($keyword_typed)): ?>
                 <h4 class="mb-4">Résultats pour : <span class="text-danger">"<?php echo $keyword_typed; ?>"</span></h4>
                 
                 <?php if (count($results) > 0): ?>
+                    
                     <?php foreach ($results as $art): ?>
                         <div class="card mb-3 search-card shadow-sm">
                             <div class="card-body">
@@ -65,6 +88,7 @@ if (isset($_POST['keyword']) && !empty(trim($_POST['keyword']))) {
                             </div>
                         </div>
                     <?php endforeach; ?>
+
                 <?php else: ?>
                     <p class="text-center opacity-50">Aucun résultat trouvé pour votre recherche.</p>
                 <?php endif; ?>
@@ -73,4 +97,7 @@ if (isset($_POST['keyword']) && !empty(trim($_POST['keyword']))) {
     </div>
 </div>
 
-<?php include '../../footer.php'; ?>
+<?php 
+// Inclusion du pied de page
+include '../../footer.php'; 
+?>

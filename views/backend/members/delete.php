@@ -1,10 +1,19 @@
 <?php
+/**
+ * ==========================================================
+ * 1. RÉCUPÉRATION DU PROFIL (BACKEND)
+ * ==========================================================
+ */
 include '../../../header.php';
 
 if (isset($_GET['numMemb'])) {
-    $numMemb = $_GET['numMemb'];
+    $numMemb = intval($_GET['numMemb']); // Sécurité : on s'assure que c'est un entier
     
-    // Jointure pour avoir le nom du statut en clair
+    /**
+     * REQUÊTE AVEC JOINTURE :
+     * On récupère les infos du membre ET le libellé de son statut (ex: "Admin").
+     * Cela permet d'afficher "Administrateur" au lieu de "1" sur la page.
+     */
     $membre = sql_select(
         "MEMBRE INNER JOIN STATUT ON MEMBRE.numStat = STATUT.numStat", 
         "MEMBRE.*, STATUT.libStat", 
@@ -27,7 +36,11 @@ if (isset($_GET['numMemb'])) {
 
             <form action="<?php echo ROOT_URL; ?>/api/members/delete.php" method="post">
                 
-                <!-- ID caché indispensable car les champs disabled ne sont pas envoyés -->
+                /**
+                 * CHAMP CACHÉ (HIDDEN) :
+                 * C'est la seule donnée envoyée au serveur. 
+                 * Les champs "disabled" ci-dessous ne sont PAS transmis lors de la soumission.
+                 */
                 <input type="hidden" name="numMemb" value="<?php echo $membre['numMemb']; ?>">
 
                 <div class="form-group mb-3">
@@ -61,7 +74,6 @@ if (isset($_GET['numMemb'])) {
                     <input type="radio" <?php echo ($membre['accordMemb'] == 0) ? 'checked' : ''; ?> disabled class="ms-3"> Non
                 </div>
 
-                <!-- Zone reCAPTCHA V3 (Visuel pour ton projet) -->
                 <div class="card p-3 mb-4" style="max-width: 300px; background-color: #f9f9f9;">
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" required>
