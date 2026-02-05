@@ -1,0 +1,45 @@
+/* Fond noir pour toute la page de recherche */
+.search-page {
+
+    color: #fff;
+    min-height: 70vh;
+}
+
+.search-title {
+    color: #dc3545; /* Rouge */
+    font-weight: bold;
+}
+
+.red-line {
+    width: 80px;
+    border: 2px solid #dc3545;
+    margin: 20px auto;
+}
+
+/* La barre de recherche */
+.search-box {
+    background-color: #333;
+    display: flex;
+}
+
+.search-box input {
+    background-color: #fff;
+    color: #000;
+    height: 50px;
+}
+
+/* Les cartes de résultats */
+.search-card {
+
+    border: 1px solid #dc3545;
+    transition: 0.3s;
+}
+
+.search-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(220, 53, 69, 0.3);
+}
+
+.search-card .card-title {
+    color: #dc3545;
+}

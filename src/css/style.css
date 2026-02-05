@@ -1,0 +1,697 @@
+
+
+.container-actu {
+max-width: 1200px;
+margin: 150px;
+font-family: 'Arial', sans-serif;
+        }
+
+        .titre-page {
+            font-size: 3.5rem;
+            text-align: center;
+            margin-bottom: 50px;
+            font-weight: bold;
+        }
+
+        /* TES CARRÉS BLEUS */
+        .carre-bleu {
+            background-color: #72add1;
+            width: 100%;
+            display: block;
+        }
+
+        .news-date {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        /* BOUTON LIRE PLUS */
+        .btn-lire-plus {
+            background-color: #041843;
+            color: white;
+            padding: 10px 25px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: inline-block;
+            transition: 0.3s;
+        }
+
+        .btn-lire-plus:hover {
+            background-color: #1a36e3;
+            color: white;
+        }
+
+        .separator {
+            margin: 60px 0;
+            border-top: 1px solid #ddd;
+        }
+
+        /* LAYOUTS SPÉCIFIQUES */
+        .grid-escalier {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            align-items: start;
+        }
+
+        /* Ajustement des hauteurs pour tes images */
+        .h-large { height: 350px; }
+        .h-medium { height: 250px; }
+        .h-small { height: 200px; }
+        
+        /* Décalage pour le style en "L" */
+        .img-decalee {
+            margin-top: 50px;
+            height: 280px;
+        }
+
+
+
+/* Configuration Générale */
+.article-container {
+  max-width: 900px;
+  margin: 0 auto;
+  font-family: 'Arial', sans-serif;
+  color: #333;
+  line-height: 1.6;
+}
+
+.image-placeholder {
+  background-color: #72add1; /* Ton bleu d'emplacement */
+  width: 100%;
+}
+
+/* Header : Titre à gauche, Image à droite */
+.article-header {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.article-title {
+  color: #1a36e3; /* Bleu électrique comme ton titre */
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+
+.meta-top { margin-top: 60px; }
+.date-big { font-weight: bold; font-size: 1.2rem; margin-bottom: 20px; }
+
+.author-small { display: flex; align-items: center; gap: 10px; font-size: 0.8rem; }
+.avatar-small { width: 40px; height: 40px; background: #ddd; border-radius: 50%; }
+
+.main-img { height: 350px; }
+
+/* Corps de l'article */
+.article-body p {
+  margin-bottom: 30px;
+  max-width: 600px; /* Le texte ne prend pas toute la largeur pour rester lisible */
+}
+
+.mid-img {
+  height: 300px;
+  margin: 40px 0;
+}
+
+/* Footer : Profil et Grille */
+.article-footer {
+  margin-top: 80px;
+  border-top: 1px solid #ddd;
+  padding-top: 40px;
+}
+
+.author-big {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 50px;
+}
+
+.avatar-big { width: 100px; height: 100px; background: #ddd; border-radius: 50%; }
+
+.bottom-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.grid-img { height: 150px; }
+
+
+/* Footer Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+
+.hero-banner {
+position: relative;
+width: 100%;
+height: 40vh;
+background-color: #72add1;
+/* On utilise le nouveau nom plus simple */
+/* Le ../ sert à sortir du dossier CSS pour entrer dans le dossier image */
+background-image: url('../image/♥.jpg');
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+background-attachment: fixed;
+display: flex;
+align-items: center;
+justify-content: center;
+overflow: hidden;
+}
+
+
+
+
+.carre-bleu-media {
+    width: 100%;           /* Prend toute la largeur de la colonne */
+    aspect-ratio: 1 / 1;    /* Force la forme CARRÉ (comme avant) */
+    object-fit: cover;      /* Remplis le carré sans écraser l'image */
+    display: block;
+    background-color: #72add1; /* Ton bleu s'affichera si l'image est manquante */
+}
+
+.album-card {
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.album-card:hover {
+    transform: translateY(-5px);
+}
+
+.artiste-name {
+    display: block;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #666;
+    letter-spacing: 1px;
+}
+
+.album-title {
+    font-size: 1.1rem;
+    font-weight: 800;
+    margin: 0;
+    color: #000;
+    line-height: 1.2;
+}
+
+
+.footer {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+               url('../image/vinyl.png') center/cover no-repeat;
+    background-attachment: fixed;
+    width: 100%;
+    min-height: 540px;
+    color: #fff;
+    padding: 60px 20px 40px;
+    margin-top: 60px;
+    background-color: #d12119;
+}
+
+.footer-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    padding: 40px 0;
+}
+
+.footer-logo-section {
+    text-align: center;
+}
+
+.footer-logo {
+    max-width: 100px;
+    height: auto;
+    margin-bottom: 20px;
+    filter: brightness(1.1);
+    transition: transform 0.3s ease;
+}
+
+.footer-logo:hover {
+    transform: scale(1.05);
+}
+
+
+
+
+/* Socials Section */
+.footer-socials {
+    text-align: center;
+}
+
+.footer-socials h3 {
+    font-size: 18px;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+
+.social-icons {
+  display: flex;
+  gap: 30px; /* Espace entre les icônes */
+  justify-content: center;
+  margin: 20px 0;
+}
+
+
+.social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 24px;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+
+.icon-link {
+  color: white; /* Couleur des icônes */
+  font-size: 2rem; /* Taille des icônes */
+  text-decoration: none;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.icon-link:hover {
+  transform: scale(1.2); /* L'icône grossit un peu au survol */
+  opacity: 0.8;
+}
+
+/* Si tu veux les couleurs d'origine au survol (optionnel) */
+.icon-link:hover .fa-instagram { color: #E1306C; }
+.icon-link:hover .fa-facebook-f { color: #1877F2; }
+.icon-link:hover .fa-youtube { color: #FF0000; }
+/* Legal Section */
+.footer-legal {
+    text-align: center;
+}
+
+.footer-legal ul {
+    list-style: none;
+}
+
+.footer-legal li {
+    margin: 10px 0;
+}
+
+.footer-legal a {
+    color: #e0e0e0;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease;
+    display: inline-block;
+}
+
+.footer-legal a:hover {
+    color: #ff0000;
+    text-decoration: underline;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    text-align: center;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 13px;
+    color: #b0b0b0;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+
+/* --- 1. LE CONTENEUR PARENT --- */
+.main-header {
+  display: flex !important; /* Force le flex pour contrer Bootstrap */
+  height: 100px;
+  width: 100%;
+  background-color: #d12119; /* Le rouge uniforme de ton image */
+  position: absolute; 
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  margin: 0;
+  padding: 0;
+}
+
+/* Version pour les articles (pousse le contenu) */
+.main-header.article-header-bg {
+  position: relative;
+}
+
+/* --- 2. BLOC LOGO (Gauche) --- */
+.logo-box {
+  flex: 0 0 180px; /* Largeur fixe pour le logo */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Pas besoin de background ici, il hérite du rouge du header */
+}
+
+.logo {
+  width: 80px; /* Ajuste selon ton image */
+  height: auto;
+}
+
+/* --- 3. MENU DE NAVIGATION (Centre) --- */
+.nav-menu {
+  display: flex !important;
+  flex: 1; /* Prend tout l'espace restant au milieu */
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-link {
+  flex: 1;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  
+  color: #ffffff !important;
+  text-decoration: none;
+  font-weight: 900;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  
+  /* Séparation fine entre les boutons comme sur l'image */
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Effet Hover (Blanc au survol ou si actif) */
+.nav-link:hover, 
+.nav-link.active {
+  background-color: #ffffff;
+  color: #d12119 !important;
+}
+
+/* --- 4. BLOC RECHERCHE (Droite) --- */
+.search-box {
+  background-color: #0c0a64; /* Le bleu très foncé de ton image */
+  flex: 0 0 100px; /* Carré à droite */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* --- 5. RESPONSIVE --- */
+@media (max-width: 992px) {
+  .main-header { height: 80px; }
+  .nav-link { font-size: 0.9rem; }
+  .logo-box { flex: 0 0 120px; }
+}
+
+@media (max-width: 768px) {
+  /* Optionnel : Masquer certains textes sur mobile pour que ça tienne */
+  .nav-link { font-size: 0.7rem; }
+}
+
+
+
+/* --- SECTION HERO --- */
+.hero {
+    width: 100%;
+    height: 100vh !important; /* Force la hauteur de l'écran */
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Titre en bas */
+    padding: 60px;
+}
+
+/* On force TOUTE la hiérarchie du carrousel à prendre 100% de la hauteur */
+#heroCarousel, 
+#heroCarousel .carousel-inner, 
+#heroCarousel .carousel-item {
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+    z-index: 1;
+}
+
+/* L'image doit remplir tout le rectangle et ne pas déborder */
+#heroCarousel .carousel-item img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important; /* Remplit l'écran sans déformer */
+}
+
+/* Overlay noir pour que le texte soit lisible */
+.carousel-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.8) 100%);
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* --- SECTION TITRE --- */
+.title-section {
+    position: relative;
+    z-index: 10; /* Par dessus le carrousel */
+    color: #fff;
+    width: 100%;
+}
+
+.subtitle {
+    font-family: 'Karantina', sans-serif;
+    font-size: clamp(24px, 5vw, 45px);
+    text-transform: uppercase;
+    margin-bottom: -10px;
+    display: block;
+}
+
+.title-section h1 {
+    font-family: 'Karantina', sans-serif;
+    font-size: clamp(80px, 18vw, 220px);
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 0.8;
+    margin: 0;
+}
+
+.title-section h1 span {
+    display: block;
+    color: #ffc342;
+    text-align: right;
+    font-size: 0.4em; /* Proportionnel au titre */
+    margin-top: -10px;
+}
+
+
+
+
+/* 1. Imports regroupés (plus propre) */
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bebas+Neue&family=Oswald:wght@700&display=swap');
+
+/* 2. Style Global de la section */
+.styles-musique {
+    background-color: #000;
+    color: #fff;
+    padding: 100px 20px; /* Un peu plus d'espace */
+    text-align: center;
+    overflow: hidden; /* Empêche l'image de dépasser de la page */
+    position: relative;
+}
+
+/* 3. Titre Principal (Magazine Style) */
+.titre-principal {
+    font-size: clamp(4rem, 12vw, 9rem); /* Taille fluide selon l'écran */
+    letter-spacing: 2px;
+    margin-bottom: 40px;
+    line-height: 0.9;
+    text-transform: uppercase;
+}
+
+/* 4. Conteneur Flex */
+.conteneur-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1300px;
+    margin: 0 auto;
+    position: relative;
+    min-height: 600px; /* Hauteur minimale pour le contenu */
+}
+
+/* 5. Blocs de texte latéraux */
+.bloc-texte {
+    width: 25%; /* Augmenté légèrement pour la lisibilité */
+    font-size: 1.2rem;
+    line-height: 1.2;
+    text-transform: uppercase;
+    z-index: 5; /* Passe devant l'onde */
+}
+
+.texte-gauche { 
+    font-family: 'Archivo Black', sans-serif;
+    text-align: left;
+    align-self: flex-start;
+    margin-top: 20px;
+}
+
+.texte-droite { 
+    font-family: 'Archivo Black', sans-serif;
+    text-align: right;
+    align-self: flex-end;
+    margin-bottom: 50px;
+}
+
+/* 6. Zone centrale avec l'image */
+.centre-visuel {
+    position: relative;
+    width: 40%;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.onde-hero {
+    position: absolute;
+    top: 20%;
+    left: 170%;
+    transform: translate(-50%, -50%); /* Centrage parfait */
+    width: 600px; /* Taille de l'image */
+    height: auto;
+    opacity: 0.8;
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* 7. Footer Styles (Electro, Rap, Rock) */
+.genres-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
+    font-family: 'Bebas Neue', sans-serif;
+}
+
+.ligne-haut {
+    display: flex;
+    gap: 40px;
+    font-size: clamp(3rem, 8vw, 5rem);
+    color: white;
+}
+
+.ligne-bas {
+    margin-top: -15px;
+}
+
+.rock {
+    color: #ff0000;
+    font-size: clamp(4rem, 10vw, 8rem);
+    line-height: 0.8;
+    font-weight: bold;
+}
+
+/* 8. Responsive */
+@media (max-width: 1024px) {
+    .conteneur-flex {
+        flex-direction: column;
+        min-height: auto;
+    }
+    
+    .bloc-texte {
+        width: 80%;
+        text-align: center;
+        margin: 20px 0;
+    }
+    
+    .centre-visuel {
+        width: 100%;
+        height: 300px;
+    }
+    
+    .onde-hero {
+        width: 100%;
+        max-width: 400px;
+    }
+}
+
+/* Style global */
+.actualites {
+    font-family: 'Arial', sans-serif; /* Ou Archivo Black selon ton choix */
+}
+
+.titre-section {
+    font-size: 4rem;
+    text-align: center;
+}
+
+.carre-bleu-grand {
+    width: 100%;
+    height: 450px; /* Ajuste cette hauteur selon ton besoin */
+    background-color: #72a9d1;
+}
+
+.carre-bleu-petit {
+    width: 130px;
+    height: 120px;
+    background-color: #72add1;
+    flex-shrink: 0; /* Important : empêche le carré de rétrécir si le texte est long */
+}
+
+/* Texte */
+.texte-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+.btn-index-actu{
+    background-color: black;
+    color: white;
+    padding: 12px 25px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-index-actu:hover {
+    background-color: #333;
+    color: white;
+}
+
+/* Pour les icônes de likes (si tu utilises Bootstrap Icons) */
+.icons-demo {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
