@@ -1,7 +1,12 @@
 <?php
 //define ROOT_PATH
 define('ROOT', $_SERVER['DOCUMENT_ROOT']);
-define('ROOT_URL', 'http://' . $_SERVER['HTTP_HOST']);
+
+// Compute project base path (so ROOT_URL works even when project isn't at host root)
+$basePath = str_replace($_SERVER['DOCUMENT_ROOT'], '', __DIR__);
+$basePath = str_replace('\\', '/', $basePath);
+$basePath = rtrim($basePath, '/');
+define('ROOT_URL', 'http://' . $_SERVER['HTTP_HOST'] . $basePath);
 
 //Load env
 require_once ROOT . '/includes/libs/DotEnv.php';

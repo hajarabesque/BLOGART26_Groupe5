@@ -72,8 +72,8 @@ $secondaires = array_slice($articlesIndex, 1);
                 <div class="col-lg-7"> 
                     <?php if ($principal): ?>
                         <a href="/views/frontend/articles/article1.php?id=<?= $principal['numArt'] ?>" class="text-decoration-none text-dark card-article-principal">
-                            <div class="carre-bleu-grand shadow-sm mb-3" 
-                                 style="background-image: url('src/uploads/<?= $principal['urlPhotArt'] ?>'); background-size: cover; background-position: center; height: 400px; border-radius: 8px;">
+                               <div class="carre-bleu-grand shadow-sm mb-3"
+                                   style="background-image: url('<?php echo ROOT_URL . '/src/uploads/' . htmlspecialchars($principal['urlPhotArt']); ?>'); background-size: cover; background-position: center; height: 400px; border-radius: 8px;">
                             </div>
                             <h3 class="h3 mb-2 fw-bold text-primary-hover"><?= htmlspecialchars($principal['libTitrArt'] ?? '') ?></h3>
                             
@@ -96,9 +96,8 @@ $secondaires = array_slice($articlesIndex, 1);
                         <?php foreach ($secondaires as $art) : ?>
                         <a href="/views/frontend/articles/article1.php?id=<?= $art['numArt'] ?>" class="text-decoration-none text-dark card-hover">
                             <div class="d-flex gap-3 align-items-start article-secondaire p-2 shadow-sm rounded bg-white">
-                                <div class="carre-bleu-petit flex-shrink-0" 
-                                     style="background-image: url('src/uploads/<?= $art['urlPhotArt'] ?>'); background-size: cover; background-position: center; width: 100px; height: 100px; border-radius: 4px;">
-                                </div>
+                                  <div class="carre-bleu-petit flex-shrink-0">
+    <img src="../../src/uploads/<?= htmlspecialchars($art['urlPhotArt']); ?>" alt="Photo de l'article" class="img-fluid">                                </div>
                                 <div>
                                     <h4 class="h6 fw-bold mb-1"><?= htmlspecialchars($art['libTitrArt'] ?? '') ?></h4>
                                     <p class="small text-muted mb-0" style="font-size: 0.8rem;">
@@ -106,6 +105,8 @@ $secondaires = array_slice($articlesIndex, 1);
                                     </p>
                                 </div>
                             </div>
+
+
                         </a>
                         <?php endforeach; ?>
                     <?php else: ?>

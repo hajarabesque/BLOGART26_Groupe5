@@ -47,9 +47,8 @@ if (isset($_GET['id'])) {
 
         <div class="col-md-7">
             <div class="article-main-visual">
-                <div class="carre-photo-art shadow-sm" 
-                     style="background-image: url('../../../src/uploads/<?= $article['urlPhotArt'] ?>');">
-                    
+                 <div class="carre-photo-art shadow-sm">
+                    <img src="<?php echo  '../../../src/uploads/' . htmlspecialchars($article['urlPhotArt']); ?>" alt="Photo de l'article" class="img-fluid">
                     <?php if(empty($article['urlPhotArt'])): ?>
                         <div class="d-flex align-items-center justify-content-center h-100 bg-light text-muted">
                             Aucun visuel disponible

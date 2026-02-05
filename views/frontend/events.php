@@ -40,24 +40,17 @@ $articles = $query->fetchAll();
                         </p>
                     </div>
 
-                    <div class="col-md-7">
-                        <a href="/views/frontend/articles/article1.php?id=<?= $art['numArt'] ?>" class="image-link d-block">
-                            <div class="carre-bleu rounded shadow-sm" 
-                                 style="height: 400px; 
-                                        style="background-image: url('../../src/uploads/<?= $art['urlPhotArt'] ?>');"
-                                        background-size: cover; 
-                                        background-position: center;
-                                        border: 1px solid #eee;">
-                                
-                                <?php if(empty($art['urlPhotArt'])): ?>
-                                    <div class="d-flex align-items-center justify-content-center h-100 bg-light text-muted">
-                                        Image manquante
-                                    </div>
-                                <?php endif; ?>
-                            </div> 
-                        </a>
-                    </div>
-                </div>
+            <div class="col-md-7">
+    <div class="carre-bleu shadow-sm">
+        <?php if(!empty($art['urlPhotArt'])): ?>
+            <img src="../../src/uploads/<?= $art['urlPhotArt']; ?>" alt="Photo">
+        <?php else: ?>
+            <div class="d-flex align-items-center justify-content-center h-100 bg-light">
+                Image manquante
+            </div>
+        <?php endif; ?>
+    </div>
+</div>
 
                 <div class="separator my-5" style="border-bottom: 1px solid #eee; opacity: 0.5;"></div>
             </section>

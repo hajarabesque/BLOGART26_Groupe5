@@ -1,24 +1,20 @@
 
 
-.container-actu {
-max-width: 1200px;
-margin: 150px;
-font-family: 'Arial', sans-serif;
-        }
-
-        .titre-page {
-            font-size: 3.5rem;
-            text-align: center;
-            margin-bottom: 50px;
-            font-weight: bold;
-        }
-
-        /* TES CARRÉS BLEUS */
+/* Le conteneur de l'image */
 .carre-bleu {
-    background-color: #f8f9fa; /* Couleur de fond par défaut si pas d'image */
-    transition: transform 0.3s ease;
+    width: 100%;       /* Prend toute la largeur de la colonne */
+    height: 250px;     /* FORCE la hauteur identique pour tous les blocs */
+    overflow: hidden;  /* Coupe ce qui dépasse */
+    border-radius: 8px;
 }
 
+/* L'image à l'intérieur */
+.carre-bleu img {
+    width: 100%;
+    height: 100%;      /* Force l'image à prendre toute la hauteur du bloc */
+    object-fit: cover; /* MAGIE : l'image remplit le bloc sans être déformée */
+    object-position: center; /* Centre l'image si elle est recadrée */
+}
 .carre-bleu:hover {
     transform: scale(1.02); /* Petit effet de zoom au survol de l'image */
 }
