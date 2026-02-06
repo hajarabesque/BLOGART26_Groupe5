@@ -21,7 +21,7 @@ if (empty($res)) {
 }
 
 $numMemb = $res[0]['numMemb'];
-
+Z
 // 3. Insertion du commentaire Table = comment
 $attModOK = 0;
 $notifComKOAff = 0;
@@ -32,7 +32,12 @@ sql_insert(
     "NOW(), '$libCom', '$attModOK', '$notifComKOAff', '$numArt', '$numMemb'"
 );
 
-// 4. Redirection
-header('Location: ../../views/backend/comments/list.php?success=1');
+if ($origin === 'front') {
+    // On le renvoie vers la page de l'article à la racine
+    header("Location: ../../article.php?numArt=$numArt&success=1");
+} else {
+    // Si c'est un admin dans le backend, on le renvoie vers la liste
+    header('Location: ../../views/backend/comments/list.php');
+}
 exit();
 ?>
