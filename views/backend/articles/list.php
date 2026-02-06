@@ -16,9 +16,9 @@ $articles = sql_select("ARTICLE a LEFT JOIN THEMATIQUE t ON a.numThem = t.numThe
                         <th>ID</th>
                         <th>Titre</th>
                         <th>Thématique</th>
-                        <th>Mots-clés</th>
-                        <th>Date création</th>
-                        <th>Dernière modification</th>
+                        <th>Mot-clés</th>
+                        <th>Date de création</th>
+                        <th>Date de modification</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -47,3 +47,4 @@ $articles = sql_select("ARTICLE a LEFT JOIN THEMATIQUE t ON a.numThem = t.numThe
 <?php
 include '../../../footer.php'; // contains the footer
 ?>
+

@@ -53,7 +53,7 @@ $motscles = sql_select('motcle');
                 </div>
                 <div class="form-group">
                     <label for="urlPhotArt">Photo de l'article</label>
-                    <input id="urlPhotArt" name="urlPhotArt" class="form-control" type="file" accept="image/*" onchange="previewImage(event)" required />
+                    <input id="urlPhotArt" name="urlPhotArt" class="form-control" type="file" accept="image/*" onchange="previewImage(event)" />
                     <small class="form-text text-muted">Formats acceptés: JPG, JPEG, PNG, GIF. Taille max: 2MB</small>
                     <div id="imagePreview" class="mt-2" style="display: none;">
                         <img id="previewImg" src="" alt="Aperçu" style="max-width: 200px; max-height: 200px;" />
@@ -92,7 +92,8 @@ $motscles = sql_select('motcle');
                     <small class="form-text text-muted">Sélectionnez un ou plusieurs mots-clés dans la liste de gauche et cliquez sur "Ajoutez"</small>
                 </div>
                 <br />
-             <div class="form-group mb-5">
+             <!-- Boutons -->
+            <div class="form-group mb-5">
                 <a href="list.php" class="btn btn-outline-primary px-4">List</a>
                 <button type="submit" class="btn btn-outline-success px-4 ms-2">Create</button>
             </div>
@@ -100,7 +101,11 @@ $motscles = sql_select('motcle');
         </div>
     </div>
 </div>
-
+<form action="<?php echo ROOT_URL . '/api/articles/create.php' ?>" 
+      method="post" 
+      enctype="multipart/form-data" 
+      onsubmit="return selectAllKeywordsBeforeSend()">
+      
 <script>
 function previewImage(event) {
     const file = event.target.files[0];
@@ -119,6 +124,7 @@ function previewImage(event) {
     }
 }
 
+// Keyword management functions
 document.getElementById('addKeyword').addEventListener('click', function() {
     moveOptions('availableKeywords', 'selectedKeywords');
 });
@@ -130,28 +136,29 @@ document.getElementById('removeKeyword').addEventListener('click', function() {
 function moveOptions(fromId, toId) {
     const fromSelect = document.getElementById(fromId);
     const toSelect = document.getElementById(toId);
+    
+    // Get selected options
     const selectedOptions = Array.from(fromSelect.selectedOptions);
     
+    // Move each selected option
     selectedOptions.forEach(option => {
         fromSelect.removeChild(option);
         toSelect.appendChild(option);
     });
     
+    // Sort the destination list alphabetically
     sortSelect(toSelect);
 }
 
 function sortSelect(selectElement) {
     const options = Array.from(selectElement.options);
     options.sort((a, b) => a.text.localeCompare(b.text));
+    
+    // Clear and re-add sorted options
     selectElement.innerHTML = '';
     options.forEach(option => selectElement.appendChild(option));
 }
-
-// SÉLECTION AUTO DES MOTS CLÉS AVANT L'ENVOI
-document.querySelector('form').addEventListener('submit', function() {
-    const selectedKeywords = document.getElementById('selectedKeywords');
-    Array.from(selectedKeywords.options).forEach(option => option.selected = true);
-});
 </script>
 
-<?php include '../../../footer.php'; ?>
+
+?>            

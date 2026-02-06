@@ -88,8 +88,8 @@ $selectedMotscles = array_filter($allMotscles, function($motcle) use ($selectedK
                     <small class="form-text text-muted">Formats acceptés: JPG, JPEG, PNG, GIF. Taille max: 2MB</small>
                     <?php if ($article && $article['urlPhotArt']): ?>
                         <div class="mt-2">
-                            <small class="text-muted">Image actuelle:</small><br>
-                            <img src="<?php echo ROOT_URL . '/src/uploads/' . htmlspecialchars($article['urlPhotArt']); ?>" alt="Image actuelle" style="max-width: 200px; max-height: 200px;" />
+                            <p>Image actuelle :</p>
+<img src="../../../src/uploads/<?php echo $article['urlPhotArt']; ?>" alt="Image actuelle" style="max-width: 200px;">
                         </div>
                     <?php endif; ?>
                     <div id="imagePreview" class="mt-2" style="display: none;">
@@ -198,3 +198,4 @@ function sortSelect(selectElement) {
 <?php
 include '../../../footer.php';
 ?>
+
