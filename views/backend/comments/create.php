@@ -66,4 +66,5 @@ require_once '../../../config.php';
 
 // On récupère les articles pour le select (table en minuscules comme vu sur ton phpMyAdmin)
 $articles = sql_select('article', 'numArt, libTitrArt');
+include '../../../footer.php';
 ?>
