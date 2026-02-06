@@ -8,7 +8,7 @@
 require_once $_SERVER['DOCUMENT_ROOT'] . '/config.php';
 
 // Chargement des fonctions de contrôle pour nettoyer les entrées utilisateur
-require_once '../../functions/ctrlSaisies.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/BLOGART26/functions/ctrlSaisies.php';
 
 /**
  * RÉCUPÉRATION DE LA SAISIE :
@@ -37,4 +37,4 @@ sql_insert('STATUT', 'libStat', "'$libStat'");
  * vers la page de liste pour qu'il puisse voir le nouveau statut ajouté.
  */
 header('Location: ../../views/backend/statuts/list.php');
-exit(); // Bonne pratique : on stoppe l'exécution du script après une redirection
+; // Bonne pratique : on stoppe l'exécution du script après une redirection

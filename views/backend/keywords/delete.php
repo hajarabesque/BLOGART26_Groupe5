@@ -28,17 +28,19 @@ if(isset($_GET['numMotCle'])){
             <form action="<?php echo ROOT_URL . '/api/keywords/delete.php' ?>" method="post">
                 <div class="form-group">
                     <label for="libMotCle">Nom du mot clé</label>
-                    
+                     <?php
                     /**
                      * CHAMP CACHÉ : On utilise 'display: none' ou 'type="hidden"' 
                      * pour transporter l'ID sans qu'il soit modifiable par l'utilisateur.
                      */
+                    ?>
                     <input id="numMotCle" name="numMotCle" style="display: none" type="text" value="<?php echo($numMotCle); ?>" readonly />
-                    
+                     <?php
                     /**
                      * AFFICHAGE SEUL : On utilise 'disabled' pour que l'utilisateur 
                      * puisse lire le mot sans pouvoir le modifier.
                      */
+                     ?>
                     <input id="libMotCle" name="libMotCle" class="form-control" type="text" value="<?php echo($libMotCle); ?>" readonly disabled />
                 </div>
                 

@@ -1,15 +1,10 @@
 <?php
-/**
- * ==========================================================
- * 1. PRÉPARATION DES DONNÉES (BACKEND)
- * ==========================================================
- */
 include '../../../header.php';
 
-// On récupère toutes les thématiques pour remplir la liste déroulante (SELECT)
+// Load thematiques for the select
 $thematiques = sql_select('thematique');
 
-// On récupère tous les mots-clés pour le système de double liste
+// Load keywords for the multi-select
 $motscles = sql_select('motcle');
 ?>
 
@@ -18,45 +13,52 @@ $motscles = sql_select('motcle');
         <div class="col-md-12">
             <h1>Création nouvel Article</h1>
         </div>
-        
         <div class="col-md-12">
             <form action="<?php echo ROOT_URL . '/api/articles/create.php' ?>" method="post" enctype="multipart/form-data">
-                
                 <div class="form-group">
                     <label for="libTitrArt">Titre de l'article</label>
                     <input id="libTitrArt" name="libTitrArt" class="form-control" type="text" autofocus="autofocus" required />
                 </div>
-
                 <div class="form-group">
                     <label for="libChapoArt">Chapeau</label>
                     <textarea id="libChapoArt" name="libChapoArt" class="form-control" rows="3" required></textarea>
                 </div>
-
                 <div class="form-group">
                     <label for="libAccrochArt">Accroche</label>
                     <input id="libAccrochArt" name="libAccrochArt" class="form-control" type="text" required />
                 </div>
-
                 <div class="form-group">
                     <label for="parag1Art">Paragraphe 1</label>
                     <textarea id="parag1Art" name="parag1Art" class="form-control" rows="5" required></textarea>
                 </div>
-
                 <div class="form-group">
                     <label for="libSsTitr1Art">Sous-titre 1</label>
                     <input id="libSsTitr1Art" name="libSsTitr1Art" class="form-control" type="text" />
                 </div>
-
+                <div class="form-group">
+                    <label for="parag2Art">Paragraphe 2</label>
+                    <textarea id="parag2Art" name="parag2Art" class="form-control" rows="5"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="libSsTitr2Art">Sous-titre 2</label>
+                    <input id="libSsTitr2Art" name="libSsTitr2Art" class="form-control" type="text" />
+                </div>
+                <div class="form-group">
+                    <label for="parag3Art">Paragraphe 3</label>
+                    <textarea id="parag3Art" name="parag3Art" class="form-control" rows="5"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="libConclArt">Conclusion</label>
+                    <textarea id="libConclArt" name="libConclArt" class="form-control" rows="4"></textarea>
+                </div>
                 <div class="form-group">
                     <label for="urlPhotArt">Photo de l'article</label>
-                    <input id="urlPhotArt" name="urlPhotArt" class="form-control" type="file" accept="image/*" onchange="previewImage(event)" required />
+                    <input id="urlPhotArt" name="urlPhotArt" class="form-control" type="file" accept="image/*" onchange="previewImage(event)" />
                     <small class="form-text text-muted">Formats acceptés: JPG, JPEG, PNG, GIF. Taille max: 2MB</small>
-                    
                     <div id="imagePreview" class="mt-2" style="display: none;">
                         <img id="previewImg" src="" alt="Aperçu" style="max-width: 200px; max-height: 200px;" />
                     </div>
                 </div>
-
                 <div class="form-group">
                     <label for="numThem">Thématique</label>
                     <select id="numThem" name="numThem" class="form-control" required>
@@ -66,7 +68,6 @@ $motscles = sql_select('motcle');
                         <?php endforeach; ?>
                     </select>
                 </div>
-
                 <div class="form-group">
                     <label>Mots-clés</label>
                     <div class="row">
@@ -78,36 +79,34 @@ $motscles = sql_select('motcle');
                                 <?php endforeach; ?>
                             </select>
                         </div>
-                        
                         <div class="col-md-2 text-center" style="padding-top: 50px;">
                             <button type="button" id="addKeyword" class="btn btn-success btn-sm mb-2">Ajoutez →</button><br>
                             <button type="button" id="removeKeyword" class="btn btn-danger btn-sm">← Supprimez</button>
                         </div>
-                        
                         <div class="col-md-5">
                             <label for="selectedKeywords">Mots-clés ajoutés</label>
                             <select id="selectedKeywords" name="motscles[]" class="form-control" multiple size="6">
                             </select>
                         </div>
                     </div>
+                    <small class="form-text text-muted">Sélectionnez un ou plusieurs mots-clés dans la liste de gauche et cliquez sur "Ajoutez"</small>
                 </div>
-
                 <br />
-                <div class="form-group mb-5">
-                    <a href="list.php" class="btn btn-outline-primary px-4">List</a>
-                    <button type="submit" class="btn btn-outline-success px-4 ms-2">Create</button>
-                </div>
+             <!-- Boutons -->
+            <div class="form-group mb-5">
+                <a href="list.php" class="btn btn-outline-primary px-4">List</a>
+                <button type="submit" class="btn btn-outline-success px-4 ms-2">Create</button>
+            </div>
             </form>
         </div>
     </div>
 </div>
-
+<form action="<?php echo ROOT_URL . '/api/articles/create.php' ?>" 
+      method="post" 
+      enctype="multipart/form-data" 
+      onsubmit="return selectAllKeywordsBeforeSend()">
+      
 <script>
-/**
- * APERÇU DE L'IMAGE :
- * Utilise l'API FileReader du navigateur pour lire le fichier local 
- * et l'afficher dans la balise <img> sans recharger la page.
- */
 function previewImage(event) {
     const file = event.target.files[0];
     const preview = document.getElementById('imagePreview');
@@ -120,38 +119,46 @@ function previewImage(event) {
             preview.style.display = 'block';
         };
         reader.readAsDataURL(file);
+    } else {
+        preview.style.display = 'none';
     }
 }
 
-/**
- * GESTION DES MOTS-CLÉS :
- * Permet de déplacer les <option> d'un <select> à un autre.
- */
+// Keyword management functions
+document.getElementById('addKeyword').addEventListener('click', function() {
+    moveOptions('availableKeywords', 'selectedKeywords');
+});
+
+document.getElementById('removeKeyword').addEventListener('click', function() {
+    moveOptions('selectedKeywords', 'availableKeywords');
+});
+
 function moveOptions(fromId, toId) {
     const fromSelect = document.getElementById(fromId);
     const toSelect = document.getElementById(toId);
+    
+    // Get selected options
     const selectedOptions = Array.from(fromSelect.selectedOptions);
     
+    // Move each selected option
     selectedOptions.forEach(option => {
         fromSelect.removeChild(option);
         toSelect.appendChild(option);
     });
+    
+    // Sort the destination list alphabetically
+    sortSelect(toSelect);
 }
 
-// Événement au clic sur les boutons Ajoutez/Supprimez
-document.getElementById('addKeyword').addEventListener('click', () => moveOptions('availableKeywords', 'selectedKeywords'));
-document.getElementById('removeKeyword').addEventListener('click', () => moveOptions('selectedKeywords', 'availableKeywords'));
-
-/**
- * SÉCURITÉ À L'ENVOI :
- * En HTML, une liste multiple n'envoie que les éléments SÉLECTIONNÉS (bleus).
- * Ce script sélectionne automatiquement TOUS les mots-clés de la liste de droite 
- * au moment où on clique sur "Create", pour être sûr qu'ils soient tous envoyés au PHP.
- */
-document.querySelector('form').addEventListener('submit', function() {
-    const selectedKeywords = document.getElementById('selectedKeywords');
-    Array.from(selectedKeywords.options).forEach(option => option.selected = true);
-});
+function sortSelect(selectElement) {
+    const options = Array.from(selectElement.options);
+    options.sort((a, b) => a.text.localeCompare(b.text));
+    
+    // Clear and re-add sorted options
+    selectElement.innerHTML = '';
+    options.forEach(option => selectElement.appendChild(option));
+}
 </script>
 
-<?php include '../../../footer.php'; ?>
+
+?>            

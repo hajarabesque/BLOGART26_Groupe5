@@ -1,40 +1,22 @@
+
 <?php
-/**
- * ==========================================================
- * 1. RÉCUPÉRATION DES DONNÉES (SÉCURITÉ)
- * ==========================================================
- */
 include '../../../header.php';
 
-// Initialisation des variables
+// Get article data if deleting
 $article = null;
 $selectedKeywords = array();
 
-/**
- * RÉCUPÉRATION DE L'ARTICLE PAR L'URL :
- * On récupère le numéro de l'article via $_GET['numArt']
- */
 if (isset($_GET['numArt'])) {
-    $numArt = intval($_GET['numArt']); // Sécurisation : on force un entier
+    $numArt = intval($_GET['numArt']);
 
-    /**
-     * JOINTURE SQL :
-     * On récupère l'article ET le nom de sa thématique (libThem) 
-     * pour que l'administrateur voie des noms clairs au lieu de simples numéros.
-     */
+    // Get article data with thematique
     $articles = sql_select("ARTICLE a LEFT JOIN THEMATIQUE t ON a.numThem = t.numThem", "a.*, t.libThem", "a.numArt = $numArt");
 
     if (!empty($articles)) {
-        $article = $articles[0]; // On stocke les données de l'article trouvé
+        $article = $articles[0];
 
-        /**
-         * RÉCUPÉRATION DES MOTS-CLÉS ASSOCIÉS :
-         * L'article est lié aux mots-clés via une table intermédiaire (MOTCLEARTICLE).
-         * On fait une jointure pour récupérer les noms (libMotCle).
-         */
+        // Get associated keywords for this article
         $articleKeywords = sql_select('MOTCLEARTICLE ma LEFT JOIN MOTCLE m ON ma.numMotCle = m.numMotCle', 'm.libMotCle', "ma.numArt = $numArt");
-        
-        // array_column permet d'extraire uniquement les noms dans un tableau simple
         $selectedKeywords = array_column($articleKeywords, 'libMotCle');
     }
 }
@@ -48,14 +30,12 @@ if (isset($_GET['numArt'])) {
                 <strong>Attention!</strong> Vous êtes sur le point de supprimer cet article. Cette action est irréversible.
             </div>
         </div>
-
         <div class="col-md-12">
             <?php if ($article): ?>
                 <div class="card">
                     <div class="card-header">
                         <h5 class="card-title">Détails de l'article à supprimer</h5>
                     </div>
-                    
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-8">
@@ -71,6 +51,49 @@ if (isset($_GET['numArt'])) {
                                 </div>
 
                                 <div class="mb-3">
+                                    <strong>Accroche:</strong><br>
+                                    <p><?php echo nl2br(htmlspecialchars($article['libAccrochArt'])); ?></p>
+                                </div>
+
+                                <div class="mb-3">
+                                    <strong>Paragraphe 1:</strong><br>
+                                    <p><?php echo nl2br(htmlspecialchars($article['parag1Art'])); ?></p>
+                                </div>
+
+                                <?php if ($article['libSsTitr1Art']): ?>
+                                <div class="mb-3">
+                                    <strong>Sous-titre 1:</strong> <?php echo htmlspecialchars($article['libSsTitr1Art']); ?>
+                                </div>
+                                <?php endif; ?>
+
+                                <?php if ($article['parag2Art']): ?>
+                                <div class="mb-3">
+                                    <strong>Paragraphe 2:</strong><br>
+                                    <p><?php echo nl2br(htmlspecialchars($article['parag2Art'])); ?></p>
+                                </div>
+                                <?php endif; ?>
+
+                                <?php if ($article['libSsTitr2Art']): ?>
+                                <div class="mb-3">
+                                    <strong>Sous-titre 2:</strong> <?php echo htmlspecialchars($article['libSsTitr2Art']); ?>
+                                </div>
+                                <?php endif; ?>
+
+                                <?php if ($article['parag3Art']): ?>
+                                <div class="mb-3">
+                                    <strong>Paragraphe 3:</strong><br>
+                                    <p><?php echo nl2br(htmlspecialchars($article['parag3Art'])); ?></p>
+                                </div>
+                                <?php endif; ?>
+
+                                <?php if ($article['libConclArt']): ?>
+                                <div class="mb-3">
+                                    <strong>Conclusion:</strong><br>
+                                    <p><?php echo nl2br(htmlspecialchars($article['libConclArt'])); ?></p>
+                                </div>
+                                <?php endif; ?>
+
+                                <div class="mb-3">
                                     <strong>Mots-clés:</strong>
                                     <?php if (!empty($selectedKeywords)): ?>
                                         <span class="badge badge-secondary"><?php echo implode('</span> <span class="badge badge-secondary">', array_map('htmlspecialchars', $selectedKeywords)); ?></span>
@@ -82,6 +105,12 @@ if (isset($_GET['numArt'])) {
                                 <div class="mb-3">
                                     <strong>Date de création:</strong> <?php echo htmlspecialchars($article['dtCreaArt']); ?>
                                 </div>
+
+                                <?php if ($article['dtMajArt']): ?>
+                                <div class="mb-3">
+                                    <strong>Dernière modification:</strong> <?php echo htmlspecialchars($article['dtMajArt']); ?>
+                                </div>
+                                <?php endif; ?>
                             </div>
 
                             <?php if ($article['urlPhotArt']): ?>
@@ -94,12 +123,9 @@ if (isset($_GET['numArt'])) {
                             <?php endif; ?>
                         </div>
                     </div>
-
                     <div class="card-footer">
                         <form action="<?php echo ROOT_URL . '/api/articles/delete.php' ?>" method="post" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cet article ? Cette action est irréversible.');">
-                            
                             <input type="hidden" name="numArt" value="<?php echo htmlspecialchars($article['numArt']); ?>" />
-                            
                             <a href="list.php" class="btn btn-secondary">Annuler</a>
                             <button type="submit" class="btn btn-danger">Supprimer définitivement</button>
                         </form>

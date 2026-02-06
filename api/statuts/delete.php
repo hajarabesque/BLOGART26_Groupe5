@@ -5,7 +5,7 @@
  * ==========================================================
  */
 // Chargement de la configuration système (connexion BDD)
-require_once $_SERVER['DOCUMENT_ROOT'] . '/config.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/BLOGART26/config.php';
 
 // Chargement des fonctions de nettoyage (sécurité)
 require_once '../../functions/ctrlSaisies.php';
@@ -36,4 +36,8 @@ sql_delete('STATUT', "numStat = $numStat");
  * la liste des statuts pour confirmer visuellement le changement.
  */
 header('Location: ../../views/backend/statuts/list.php');
-exit(); // Interrompt le script pour valider la redirection
+; // Interrompt le script pour valider la redirection
+
+
+
+

@@ -42,27 +42,32 @@ if (isset($_GET['numMotCle'])) {
             <hr />
         </div>
         <div class="col-md-8">
+             <?php
             /**
              * FORMULAIRE DE MISE À JOUR :
              * - action : Envoie vers l'API de traitement (update.php).
              * - method="post" : Standard pour envoyer des modifications de données.
              */
+             ?>
             <form action="<?php echo ROOT_URL . '/api/keywords/update.php' ?>" method="post">
-                
+                 <?php
                 /**
                  * CHAMP CACHÉ (HIDDEN) :
                  * Il contient l'ID (numMotCle). C'est le "marqueur" qui permettra 
                  * à la requête SQL (UPDATE ... WHERE numMotCle = ?) de savoir 
                  * quelle ligne exacte modifier.
                  */
+                 ?>
                 <input type="hidden" name="numMotCle" value="<?php echo htmlspecialchars($numStat); ?>" />
 
                 <div class="form-group mb-3">
                     <label for="libMotCle">Libellé du mot-clé</label>
+                     <?php
                     /**
                      * htmlspecialchars() : Sécurité contre les failles XSS.
                      * Empêche l'exécution de scripts si le libellé contient des balises <script>.
                      */
+                     ?>
                     <input id="libMotCle" name="libMotCle" class="form-control" type="text" value="<?php echo htmlspecialchars($libStat); ?>" />
                 </div>
 

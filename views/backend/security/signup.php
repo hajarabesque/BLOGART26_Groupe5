@@ -33,6 +33,62 @@ if (isset($_POST['btn'])) {
     // Récupération du choix RGPD (par défaut '0' si non coché)
     $accord    = $_POST['data_acceptance'] ?? '0';
 
+    // ============================================================
+    // VALIDATION DU RECAPTCHA : Protection contre les attaques bot
+    // ============================================================
+    // On récupère le token généré par Google depuis le formulaire
+    $recaptchaToken = $_POST['g-recaptcha-response'] ?? '';
+    
+    // ATTENTION : À REMPLACER PAR VOS VRAIES CLÉS RECAPTCHA !
+    // Obtenez-les gratuitement sur : https://www.google.com/recaptcha/admin
+    // Ces clés de test ne fonctionnent qu'en développement local
+    $recaptchaSecretKey = '6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe';
+    
+    // Si aucun token n'est présent, l'utilisateur n'a pas coché le captcha
+    if (empty($recaptchaToken)) {
+        $errors[] = "Veuillez cocher le captcha pour prouver que vous n'êtes pas un robot.";
+    } else {
+        // ============================================================
+        // APPEL À L'API GOOGLE : Vérification du token côté serveur
+        // ============================================================
+        // Préparation de la requête HTTPS POST vers Google
+        $recaptchaUrl = 'https://www.google.com/recaptcha/api/siteverify';
+        
+        // Options pour la requête cURL (communication avec le serveur Google)
+        $curlOptions = [
+            CURLOPT_URL => $recaptchaUrl,
+            CURLOPT_POST => true,
+            CURLOPT_POSTFIELDS => http_build_query([
+                'secret' => $recaptchaSecretKey,
+                'response' => $recaptchaToken
+            ]),
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_SSL_VERIFYPEER => true, // Vérification du certificat SSL (sécurité)
+            CURLOPT_TIMEOUT => 10 // Délai d'attente max 10 secondes
+        ];
+        
+        // Initialisation de cURL et exécution de la requête
+        $curl = curl_init();
+        curl_setopt_array($curl, $curlOptions);
+        $response = curl_exec($curl);
+        curl_close($curl);
+        
+        // Décodage de la réponse JSON reçue de Google
+        $recaptchaResult = json_decode($response, true);
+        
+        // Vérification des conditions de réussite du captcha
+        // success : booléen indiquant si le captcha est valide
+        // score : entre 0 et 1 (0 = probablement bot, 1 = probablement humain) - pour reCAPTCHA v3
+        if (
+            !isset($recaptchaResult['success']) || 
+            $recaptchaResult['success'] !== true || 
+            (isset($recaptchaResult['score']) && $recaptchaResult['score'] < 0.5)
+        ) {
+            $errors[] = "Échec du captcha. Veuillez réessayer.";
+        }
+        // Si tout est valide, la variable $recaptchaToken est confirmée et on continue
+    }
+
     /**
      * CONTRÔLES DE SÉCURITÉ : Vérifications avant insertion
      */
@@ -126,6 +182,14 @@ if (isset($_POST['btn'])) {
             </div>
         <?php endif; ?>
         
+        <!-- ============================================================
+             SCRIPT GOOGLE RECAPTCHA V2
+             ============================================================
+             Ce script est OBLIGATOIRE pour que le captcha fonctionne
+             Il crée une clé globale 'grecaptcha' accessible en JavaScript
+        -->
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+        
         <!-- Formulaire pointant vers lui-même (action="") via la méthode POST (sécurisée) -->
         <form action="" method="POST">
             
@@ -176,10 +240,24 @@ if (isset($_POST['btn'])) {
                 </div>
             </div>
                 
-            <!-- RECAPTCHA GOOGLE : Système de protection contre les robots (nécessite le JS de Google) -->
+            <!-- ============================================================
+                 RECAPTCHA GOOGLE V2 : Système de protection contre les robots
+                 ============================================================
+                 data-sitekey : Clé PUBLIQUE fournie par Google (visible côté client)
+                 
+                 À REMPLACER PAR VOTRE VRAIE CLÉ PUBLIC RECAPTCHA !
+            -->
             <div class="mb-4 d-flex justify-content-center">
+                <!-- Cette div sera remplacée par un widget reCAPTCHA -->
                 <div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></div>
             </div>
+            
+            <!-- MESSAGE SI JAVASCRIPT DÉSACTIVÉ : Le captcha ne fonctionne pas sans JS -->
+            <noscript>
+                <div class="alert alert-warning mt-3" role="alert">
+                    ⚠️ Le captcha reCAPTCHA nécessite JavaScript. Veuillez activer JavaScript dans votre navigateur.
+                </div>
+            </noscript>
             
             <!-- BOUTON DE SOUMISSION : name="btn" est crucial pour le test isset($_POST['btn']) au début du script -->
             <div class="d-grid">

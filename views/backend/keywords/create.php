@@ -14,19 +14,23 @@ include '../../../header.php';
             <h1>Création nouveau Mot Clé</h1>
         </div>
         <div class="col-md-12">
+            <?php
             /**
              * LE FORMULAIRE :
              * - action : Envoie les données vers l'API qui fera le INSERT SQL.
              * - method="post" : Sécurise l'envoi des données dans le corps de la requête.
              */
+            ?>
             <form action="<?php echo ROOT_URL . '/api/keywords/create.php' ?>" method="post">
                 
                 <div class="form-group">
                     <label for="libMotCle">Libellé du mot-clé</label>
+                     <?php
                     /**
                      * autofocus : Place le curseur sur ce champ dès l'ouverture.
                      * required : Empêche l'envoi d'un mot-clé vide.
                      */
+                       ?>
                     <input id="libMotCle" name="libMotCle" class="form-control" type="text" autofocus="autofocus" required />
                 </div>
                 

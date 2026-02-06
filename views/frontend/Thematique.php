@@ -43,9 +43,9 @@ require_once '../../header.php';
                 <a href="/views/frontend/articles-by-thematique.php?numThem=<?= $them['numThem']; ?>" class="text-decoration-none text-dark d-block h-100">
                     <div class="card h-100 border-0 shadow-sm rounded overflow-hidden category-card" style="transition: all 0.3s ease;">
                         
-                        <!-- IMAGE -->
+                        <!-- IMAGE : Chaque thématique a sa propre image basée sur son numéro -->
                         <div class="position-relative overflow-hidden" style="height: 250px;">
-                            <img src="/src/images/concert.png" class="card-img-top w-100 h-100" alt="<?= htmlspecialchars($them['libThem']); ?>" style="object-fit: cover; transition: transform 0.3s ease;">
+                            <img src="/src/images/them_<?= $them['numThem']; ?>.jpeg" class="card-img-top w-100 h-100" alt="<?= htmlspecialchars($them['libThem']); ?>" style="object-fit: cover; transition: transform 0.3s ease;">
                             <div class="position-absolute top-0 start-0 w-100 h-100" style="background: rgba(0,0,0,0.2); transition: background 0.3s ease;"></div>
                         </div>
                         

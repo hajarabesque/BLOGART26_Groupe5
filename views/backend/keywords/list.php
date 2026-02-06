@@ -28,11 +28,13 @@ $statuts = sql_select("MOTCLE", "*");
                     </tr>
                 </thead>
                 <tbody>
+                     <?php
                     /**
                      * BOUCLE FOREACH :
                      * On parcourt le tableau de résultats $statuts.
                      * Pour chaque entrée, on génère une ligne de tableau (<tr>).
                      */
+                     ?>
                     <?php foreach($statuts as $statut){ ?>
                         <tr>
                             <td><?php echo($statut['numMotCle']); ?></td>
@@ -40,12 +42,14 @@ $statuts = sql_select("MOTCLE", "*");
                             <td><?php echo($statut['libMotCle']); ?></td>
                             
                             <td>
+                          <?php
                                 /**
                                  * BOUTONS D'ACTION :
                                  * On passe l'identifiant 'numMotCle' dans l'URL.
                                  * Cela permet à edit.php et delete.php de savoir 
                                  * précisément quel mot-clé l'utilisateur veut cibler.
                                  */
+                              ?>
                                 <a href="edit.php?numMotCle=<?php echo($statut['numMotCle']); ?>" class="btn btn-primary btn-sm">Edit</a>
                                 <a href="delete.php?numMotCle=<?php echo($statut['numMotCle']); ?>" class="btn btn-danger btn-sm">Delete</a>
                             </td>
