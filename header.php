@@ -50,7 +50,8 @@ try {
     <div class="nav-block flex-grow-1 d-flex align-items-center justify-content-center gap-4">
         <a href="/index.php" class="text-white text-decoration-none fw-bold">ACCUEIL</a>
         <a href="/views/frontend/events.php" class="text-white text-decoration-none fw-bold">ARTICLES</a>
-        <a href="/views/frontend/actors.php" class="text-white text-decoration-none fw-bold">ACTEURS</a>
+        <a href="/views/frontend/Thematique.php" class="text-white text-decoration-none fw-bold">THEMATIQUES</a>
+
     </div>
 
     <div class="nav-block bg-blue px-4 d-flex align-items-center gap-3" style="background: #0044ff;">

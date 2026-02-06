@@ -1,77 +1,39 @@
 <?php
-/**
- * ==========================================================
- * 1. LOGIQUE DE RÉCUPÉRATION (BACKEND)
- * ==========================================================
- */
-// On inclut le header (qui contient la connexion $db et config.php)
-require_once '../../../header.php'; 
+include '../../../header.php'; // contains the header and call to config.php
 
-/**
- * RÉCUPÉRATION DES DONNÉES :
- * On utilise ta fonction sql_select pour récupérer toutes les colonnes (*)
- * de la table THEMATIQUE.
- */
+//Load all statuts
 $thematiques = sql_select("THEMATIQUE", "*");
 ?>
 
-<div class="container py-5">
+<!-- Bootstrap default layout to display all statuts in foreach -->
+<div class="container">
     <div class="row">
         <div class="col-md-12">
-            <h1 class="mb-4">Gestion des Thématiques</h1>
-            
-            <table class="table table-striped table-hover shadow-sm">
-                <thead class="table-dark">
+            <h1>Thématiques</h1>
+            <table class="table table-striped">
+                <thead>
                     <tr>
-                        <th>ID</th>
-                        <th>Nom de la thématique</th>
-                        <th class="text-center">Actions</th>
+                        <th>Id</th>
+                        <th>Nom des thématiques</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
-            
-                    <?php 
-                    /**
-                     * BOUCLE FOREACH :
-                     * PHP parcourt chaque thématique trouvée en base de données.
-                     * Pour chaque ligne, on crée une rangée <tr> dans le tableau.
-                     */
-                    
-                    foreach($thematiques as $thematique){ ?>
+                    <?php foreach($thematiques as $thematique){ ?>
                         <tr>
                             <td><?php echo($thematique['numThem']); ?></td>
-                            
-                            <td><strong><?php echo htmlspecialchars($thematique['libThem']); ?></strong></td>
-                            
-                            <td class="text-center">
-                            
-                                <a href="edit.php?numThem=<?php echo($thematique['numThem']); ?>" class="btn btn-primary btn-sm">Modifier</a>
-                                <a href="delete.php?numThem=<?php echo($thematique['numThem']); ?>" class="btn btn-danger btn-sm">Supprimer</a>
+                            <td><?php echo($thematique['libThem']); ?></td>
+                            <td>
+                                <a href="edit.php?numThem=<?php echo($thematique['numThem']); ?>" class="btn btn-primary">Edit</a>
+                                <a href="delete.php?numThem=<?php echo($thematique['numThem']); ?>" class="btn btn-danger">Delete</a>
                             </td>
                         </tr>
-                    <?php }  /**
-                                 * LIENS DYNAMIQUES :
-                                 * On injecte l'ID (numThem) dans l'URL pour que les pages 
-                                 * de destination sachent quelle thématique traiter.
-                                 */ ?>
-                    
+                    <?php } ?>
                 </tbody>
             </table>
-
-            <div class="mt-4">
-                <a href="create.php" class="btn btn-success px-4">Ajouter une thématique</a>
-            </div>
+            <a href="create.php" class="btn btn-success">Create</a>
         </div>
     </div>
 </div>
-
-
-
 <?php
-/**
- * ==========================================================
- * 3. PIED DE PAGE
- * ==========================================================
- */
-include '../../../footer.php'; 
-?>
+include '../../../footer.php'; // contains the footer

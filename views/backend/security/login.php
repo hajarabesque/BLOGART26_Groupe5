@@ -26,7 +26,7 @@ if (isset($_POST['btn'])) {
          * REQUÊTE PRÉPARÉE :
          * On cherche le membre par son email. On utilise ':' pour éviter les injections SQL.
          */
-        $query = $db->prepare('SELECT * FROM MEMBER WHERE emailMem = :email');
+        $query = $db->prepare('SELECT * FROM MEMBRE WHERE eMailMemb = :email');
         $query->execute([':email' => $email]);
         $user = $query->fetch();
 
@@ -35,7 +35,7 @@ if (isset($_POST['btn'])) {
          * password_verify() compare le mot de passe tapé avec l'empreinte (hash) 
          * stockée en base de données.
          */
-        if ($user && password_verify($password, $user['passMem'])) {
+        if ($user && password_verify($password, $user['passMemb'])) {
             
             /**
              * CONNEXION RÉUSSIE :
@@ -43,8 +43,8 @@ if (isset($_POST['btn'])) {
              * Ces données resteront accessibles sur TOUTES les pages du site.
              */
             $_SESSION['user'] = [
-                'id' => $user['numMem'],
-                'pseudo' => $user['pseudoMem']
+                'id' => $user['numMemb'],
+                'pseudo' => $user['pseudoMemb']
             ];
 
             // Redirection immédiate vers l'accueil

@@ -66,7 +66,7 @@ require_once '../../../header.php';
             </section>
 
             <div class="text-center mt-5">
-                <a href="index.php" class="btn btn-primary">Retour à l'accueil</a>
+                <a href="/index.php" class="btn btn-primary">Retour à l'accueil</a>
             </div>
         </div>
     </div>

@@ -2,7 +2,6 @@
 .body {
  margin: 0;
  font-family: sans-serif;
- background-color: #FFF0F0;
 }
 
 
@@ -157,6 +156,7 @@
 
 
 .discover {
+ background-color: rgb(255, 255, 255);
  position: relative;
  overflow: hidden;
  padding: 30px 0 60px;
@@ -208,7 +208,7 @@
  position: relative;
  z-index: 2;
  margin: 0;
- font-size: 27px;
+ font-size: 20px;
  letter-spacing: 3px;
  color: white;
 }
@@ -289,44 +289,7 @@
  height: 300px;
  width: auto;
  flex-shrink: 0;
-}
 
-
-.audio-progress {
- display: flex;
- align-items: center;
- gap: 14px;
- margin-top: 20px;
- width: 360px;
-}
-
-
-.time {
- font-size: 14px;
- font-weight: bold;
- color: #000;
- min-width: 40px;
- text-align: center;
-}
-
-
-.progress-bar {
- position: relative;
- flex: 1;
- height: 4px;
- background-color: #000;
- cursor: pointer;
-}
-
-
-.progress-fill {
- position: absolute;
- top: 100px;
- left: 0;
- height: 100%;
- width: 30%;
- transform: translateY(-60px);
- background-color: #000;
 }
 
 
@@ -377,4 +340,22 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+
+
+
+
+
+.article-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.article-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2) !important;
+}
+
+.article-card:hover img {
+    transform: scale(1.08);
 }

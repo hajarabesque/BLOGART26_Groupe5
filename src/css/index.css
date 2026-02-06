@@ -1,16 +1,26 @@
-/* --- SECTION HERO --- */
+/* ==========================================================
+   1. IMPORTS ET CONFIGURATION GLOBALE
+   ========================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bebas+Neue&family=Karantina:wght@400;700;900&family=Oswald:wght@700&display=swap');
+
+body {
+    overflow-x: hidden;
+}
+
+/* ==========================================================
+   2. SECTION HERO (CARROUSEL DU HAUT)
+   ========================================================== */
 .hero {
     width: 100%;
-    height: 100vh !important; /* Force la hauteur de l'écran */
+    height: 100vh !important;
     position: relative;
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end; /* Titre en bas */
+    justify-content: flex-end;
     padding: 60px;
 }
 
-/* On force TOUTE la hiérarchie du carrousel à prendre 100% de la hauteur */
 #heroCarousel, 
 #heroCarousel .carousel-inner, 
 #heroCarousel .carousel-item {
@@ -22,14 +32,12 @@
     z-index: 1;
 }
 
-/* L'image doit remplir tout le rectangle et ne pas déborder */
 #heroCarousel .carousel-item img {
     width: 100% !important;
     height: 100% !important;
-    object-fit: cover !important; /* Remplit l'écran sans déformer */
+    object-fit: cover !important;
 }
 
-/* Overlay noir pour que le texte soit lisible */
 .carousel-overlay {
     position: absolute;
     top: 0;
@@ -41,10 +49,9 @@
     pointer-events: none;
 }
 
-/* --- SECTION TITRE --- */
 .title-section {
     position: relative;
-    z-index: 10; /* Par dessus le carrousel */
+    z-index: 10;
     color: #fff;
     width: 100%;
 }
@@ -70,199 +77,226 @@
     display: block;
     color: #ffc342;
     text-align: right;
-    font-size: 0.4em; /* Proportionnel au titre */
+    font-size: 0.4em;
     margin-top: -10px;
 }
 
-
-
-
-/* 1. Imports regroupés (plus propre) */
-@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bebas+Neue&family=Oswald:wght@700&display=swap');
-
-/* 2. Style Global de la section */
+/* ==========================================================
+   3. SECTION STYLES DE MUSIQUE (NOIR/TV)
+   ========================================================== */
 .styles-musique {
     background-color: #000;
     color: #fff;
-    padding: 100px 20px; /* Un peu plus d'espace */
+    padding: 100px 20px;
     text-align: center;
-    overflow: hidden; /* Empêche l'image de dépasser de la page */
     position: relative;
 }
 
-/* 3. Titre Principal (Magazine Style) */
 .titre-principal {
-    font-size: clamp(4rem, 12vw, 9rem); /* Taille fluide selon l'écran */
-    letter-spacing: 2px;
-    margin-bottom: 40px;
-    line-height: 0.9;
+    font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(3rem, 10vw, 7rem);
     text-transform: uppercase;
+    margin-bottom: 40px;
 }
 
-/* 4. Conteneur Flex */
 .conteneur-flex {
     display: flex;
     justify-content: space-between;
     align-items: center;
     max-width: 1300px;
     margin: 0 auto;
-    position: relative;
-    min-height: 600px; /* Hauteur minimale pour le contenu */
 }
 
-/* 5. Blocs de texte latéraux */
 .bloc-texte {
-    width: 25%; /* Augmenté légèrement pour la lisibilité */
-    font-size: 1.2rem;
-    line-height: 1.2;
+    width: 25%;
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 1.1rem;
     text-transform: uppercase;
-    z-index: 5; /* Passe devant l'onde */
+    z-index: 5;
 }
 
-.texte-gauche { 
-    font-family: 'Archivo Black', sans-serif;
-    text-align: left;
-    align-self: flex-start;
-    margin-top: 20px;
-}
+.texte-gauche { text-align: left; }
+.texte-droite { text-align: right; }
 
-.texte-droite { 
-    font-family: 'Archivo Black', sans-serif;
-    text-align: right;
-    align-self: flex-end;
-    margin-bottom: 50px;
-}
-
-/* 6. Zone centrale avec l'image */
 .centre-visuel {
     position: relative;
     width: 40%;
-    height: 500px;
+}
+
+.image-centrale {
+    width: 100%;
+    z-index: 3;
+    position: relative;
+}
+
+.onde-hero {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 150%; /* L'onde dépasse de la TV */
+    opacity: 0.6;
+    z-index: 1;
+}
+
+/* ==========================================================
+   4. SECTION ACTUALITÉS (GRIS/BDD)
+   ========================================================== */
+.actualites {
+    padding-bottom: 100px !important; /* Ajoute l'espace en bas que tu voulais */
+}
+
+.titre-section {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(2rem, 5vw, 4rem);
+    margin-bottom: 30px;
+}
+
+/* ==========================================================
+   5. SECTION DÉCOUVRIR (LECTEUR VINYLE)
+   ========================================================== */
+.discover {
+    padding: 100px 0;
+    position: relative;
+    overflow: hidden;
+    min-height: 800px;
+}
+
+/* Titre avec fond image */
+.discover-title {
+    position: relative;
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.discover-title h1 {
+    font-family: 'Archivo Black', sans-serif;
+    position: relative;
+    z-index: 2;
+    color: #fff;
+}
+
+.deco-title-bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    z-index: 1;
+}
+
+/* Logique du Carrousel Vinyle */
+.vinyl-container {
+    position: relative;
+    height: 450px;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.onde-hero {
+.vinyl {
     position: absolute;
-    top: 20%;
-    left: 170%;
-    transform: translate(-50%, -50%); /* Centrage parfait */
-    width: 600px; /* Taille de l'image */
-    height: auto;
-    opacity: 0.8;
-    z-index: 2;
+    transition: all 0.5s ease-in-out;
+    text-align: center;
+}
+
+.vinyl img {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    /* Animation de rotation par défaut mais stoppée */
+    animation: rotateDisc 5s linear infinite;
+    animation-play-state: paused;
+}
+
+/* État quand la musique joue */
+.vinyl.playing img {
+    animation-play-state: running;
+}
+
+@keyframes rotateDisc {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Positions du Carrousel */
+.vinyl.center {
+    transform: translate(-50%, -50%) scale(1.2);
+    left: 50%;
+    top: 50%;
+    z-index: 10;
+    opacity: 1;
+}
+
+.vinyl.left {
+    transform: translate(-50%, -50%) translateX(-350px) scale(0.8);
+    left: 50%;
+    top: 50%;
+    z-index: 5;
+    opacity: 0.6;
+}
+
+.vinyl.right {
+    transform: translate(-50%, -50%) translateX(350px) scale(0.8);
+    left: 50%;
+    top: 50%;
+    z-index: 5;
+    opacity: 0.6;
+}
+
+/* Boutons de contrôle */
+.controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.arrow {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.cassette-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.cassette-btn img {
+    width: 150px;
+    transition: transform 0.2s;
+}
+
+.cassette-btn:active img {
+    transform: scale(0.9);
+}
+
+/* Décorations (Etoiles, papiers, etc.) */
+.deco {
+    position: absolute;
+    z-index: 1;
     pointer-events: none;
 }
 
-/* 7. Footer Styles (Electro, Rap, Rock) */
-.genres-footer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 40px;
-    font-family: 'Bebas Neue', sans-serif;
-}
+.star-top-left { top: 50px; left: 10%; width: 50px; }
+.star-bottom-right { bottom: 50px; right: 10%; width: 80px; }
 
-.ligne-haut {
-    display: flex;
-    gap: 40px;
-    font-size: clamp(3rem, 8vw, 5rem);
-    color: white;
-}
-
-.ligne-bas {
-    margin-top: -15px;
-}
-
-.rock {
-    color: #ff0000;
-    font-size: clamp(4rem, 10vw, 8rem);
-    line-height: 0.8;
-    font-weight: bold;
-}
-
-/* 8. Responsive */
-@media (max-width: 1024px) {
+/* ==========================================================
+   6. RESPONSIVE
+   ========================================================== */
+@media (max-width: 992px) {
     .conteneur-flex {
         flex-direction: column;
-        min-height: auto;
+        gap: 40px;
     }
-    
-    .bloc-texte {
-        width: 80%;
-        text-align: center;
-        margin: 20px 0;
-    }
-    
-    .centre-visuel {
-        width: 100%;
-        height: 300px;
-    }
-    
-    .onde-hero {
-        width: 100%;
-        max-width: 400px;
-    }
-}
-
-
-
-
-
-
-
-/* Style global */
-.actualites {
-    margin-top: 20px;
-    font-family: 'Arial', sans-serif; 
-    /* Ou Archivo Black selon ton choix */
-
-}
-
-.titre-section {
-    font-size: 4rem;
-    text-align: center;
-    margin-top: 20px;;
-}
-
-.carre-bleu-grand {
-    width: 100%;
-    height: 450px; /* Ajuste cette hauteur selon ton besoin */
-    background-color: #b5001e;
-}
-
-.carre-bleu-petit {
-    width: 130px;
-    height: 120px;
-    background-color: #72d18a;
-    flex-shrink: 0; /* Important : empêche le carré de rétrécir si le texte est long */
-}
-
-/* Texte */
-.texte-description {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    text-align: justify;
-}
-
-.btn-index-actu{
-    background-color: black;
-    color: white;
-    padding: 12px 25px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: 0.3s;
-
-}
-
-.btn-index-actu:hover {
-    background-color: #333;
-    color: white;
-}
-
-/* Pour les icônes de likes (si tu utilises Bootstrap Icons) */
-.icons-demo {
-    font-size: 1.2rem;
-    font-weight: bold;
+    .bloc-texte { width: 100%; text-align: center; }
+    .vinyl.left { transform: translate(-50%, -50%) translateX(-150px) scale(0.5); }
+    .vinyl.right { transform: translate(-50%, -50%) translateX(150px) scale(0.5); }
 }

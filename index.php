@@ -81,7 +81,7 @@ $secondaires = array_slice($articlesIndex, 1);
     </section>
 
     <!-- SECTION ACTUALITÉS : Affichage dynamique des articles de la BDD -->
-    <section class="page-section bg-light py-5  actualites" id="portfolio">
+    <section class="page-section py-5  actualites" id="portfolio">
         <div class="container px-5 px-lg-5">
             <h2 class="text-center mt-0 titre-section">Actualités</h2>
             <div class="row g-5 mt-5">
@@ -146,21 +146,11 @@ $secondaires = array_slice($articlesIndex, 1);
         </div>
     </section>
 
-
-
-
-
-
-
-
-
 <section class="discover">
 
 
            <img src="/src/images/Dark Blue Paper Texture Textured Background Wallpaper Image For Free Download - Pngtree.png"
            alt="" class="deco deco-paper-left">
-
-
            <img src="/src/images/red-paper.png"
            alt=""   class="deco deco-red-diagonal"/>
 
@@ -168,20 +158,6 @@ $secondaires = array_slice($articlesIndex, 1);
            <img src="/src/images/star.png" alt="" class="deco deco-star star-top-left">
            <img src="/src/images/star.png" alt="" class="deco deco-star star-top-right">
            <img src="/src/images/star.png" alt="" class="deco deco-star star-bottom-right">
-
-
-           <div class="lace-strip">
-           <img src="/src/images/red.png" alt="">
-           <img src="/src/images/red.png" alt="">
-           <img src="/src/images/red.png" alt="">
-           </div>
-
-
-           <div class="deco deco-lace-bottom">
-           <img src="/src/images/redbas.png" alt="">
-           <img src="/src/images/redbas.png" alt="">
-           <img src="/src/images/redbas.png" alt="">
-           </div>
           
            <div class="discover-title">
               
@@ -194,28 +170,22 @@ $secondaires = array_slice($articlesIndex, 1);
 
            <div class="carousel-wrapper">
                <div class="carousel">
-
-
                    <div class="vinyl-container">
                        <div class="vinyl left" data-index="0" data-audio="/src/Audio/j999de.mp3">
                            <img src="/src/images/tht.png" alt="j999de">
                            <p>j999de</p>
                        </div>
 
-
                    <div class="vinyl center" data-index="1" data-audio="/src/Audio/Web.mp3">
                        <img src="/src/images/b.png" alt="Thats_web">
                            <p>Thats_web</p>
                        </div>
-
 
                    <div class="vinyl right" data-index="2" data-audio="/src/Audio/Tvrzan.mp3">
                        <img src="/src/images/pleease.png" alt="TVRZAN">
                            <p>TVRZAN</p>
                        </div>
                    </div>
-
-
                   
                    <div class="controls">
                       
@@ -226,9 +196,6 @@ $secondaires = array_slice($articlesIndex, 1);
                        <button class="cassette-btn" aria-label="Lecture musique">
                            <img src="/src/images/cassette.png" alt="Lire la musique">
                        </button>
-
-
-            
 
                        </div>
 

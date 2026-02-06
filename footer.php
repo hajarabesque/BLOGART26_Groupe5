@@ -34,7 +34,7 @@ $showCookieModal = !isset($_COOKIE['cookie_consent']);
         <div class="footer-legal">
             <ul>
                 <li><a href="/mentions-legales.php">Mentions légales</a></li>
-                <li><a href="/cgu.php">Conditions d'utilisation</a></li>
+                <li><a href="/views/frontend/rgpd/cgu.php">Conditions d'utilisation</a></li>
                 <li><a href="/views/frontend/rgpd/rgpd.php">Politique de confidentialité & Cookies</a></li>
             </ul>
         </div>
