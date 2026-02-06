@@ -23,7 +23,7 @@ if (isset($_POST['btn'])) {
     $prenom    = htmlspecialchars($_POST['prenom'] ?? '');
 
     // Variable 'nom' forcée à vide car absente du formulaire mais requise par la structure de la BDD
-    $nom       = ""; 
+    $nom       = htmlspecialchars($_POST['nom'] ?? ''); 
     $email     = htmlspecialchars($_POST['email'] ?? '');
     
     // Récupération des mots de passe (on ne les désinfecte pas pour ne pas modifier les caractères spéciaux)
@@ -204,6 +204,11 @@ if (isset($_POST['btn'])) {
             <div class="mb-3">
                 <label for="prenom" class="form-label fw-bold">Prénom</label>
                 <input type="text" id="prenom" name="prenom" class="form-control" value="<?= $prenom ?? '' ?>" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="nom" class="form-label fw-bold">Nom</label>
+                <input type="text" id="nom" name="nom" class="form-control" value="<?= $nom ?? '' ?>" required>
             </div>
 
             <!-- ADRESSE EMAIL : type="email" force la validation du format (présence du @) par le navigateur -->

@@ -15,7 +15,8 @@ $showCookieModal = !isset($_COOKIE['cookie_consent']);
 
 <link rel="stylesheet" href="/src/css/footer.css">
 
-<footer class="footer">
+<!-- FOOTER : Conteneur principal avec image de fond -->
+<footer class="footer" style="background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('/src/images/vinyl.png') center/cover no-repeat; background-attachment: fixed;">
     <div class="footer-container">
         
         <div class="footer-logo-section">
