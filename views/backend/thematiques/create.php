@@ -1,21 +1,26 @@
-<?php include '../../../header.php'; ?>
+<?php
+include '../../../header.php';
+?>
 
-<div class="container py-5">
+<!-- Bootstrap form to create a new statut -->
+<div class="container">
     <div class="row">
         <div class="col-md-12">
-            <h1>Création nouvelle Thématique</h1>
-            <form action="/api/thematiques/create.php" method="post" class="mt-4">
+            <h1>Création nouveau Theme</h1>
+        </div>
+        <div class="col-md-12">
+            <!-- Form to create a new statut -->
+            <form action="<?php echo ROOT_URL . '/api/thematiques/create.php' ?>" method="post">
                 <div class="form-group">
-                    <label for="libThem">Nom de la thématique</label>
-                    <input id="libThem" name="libThem" class="form-control" type="text" autofocus required />
+                    <label for="libThem">Nom du thematique</label>
+                    <input id="libThem" name="libThem" class="form-control" type="text" autofocus="autofocus" />
                 </div>
-                <div class="form-group mt-3">
-                    <a href="list.php" class="btn btn-secondary">Annuler</a>
-                    <button type="submit" class="btn btn-success">Confirmer la création</button>
+                <br />
+                <div class="form-group mt-2">
+                    <a href="list.php" class="btn btn-primary">List</a>
+                    <button type="submit" class="btn btn-success">Create ?</button>
                 </div>
             </form>
         </div>
     </div>
 </div>
-
-<?php include '../../../footer.php'; ?>

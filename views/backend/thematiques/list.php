@@ -1,10 +1,10 @@
 <?php
-// 1. On inclut le header (qui crée la connexion $db)
-require_once '../../../header.php'; 
+include '../../../header.php'; // contains the header and call to config.php
 
-// Désormais, la variable $thematiques contient tes données et le foreach plus bas fonctionnera !
+//Load all statuts
 $thematiques = sql_select("THEMATIQUE", "*");
 ?>
+
 <!-- Bootstrap default layout to display all statuts in foreach -->
 <div class="container">
     <div class="row">

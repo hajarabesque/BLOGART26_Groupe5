@@ -1,27 +1,32 @@
-<?php 
+<?php
 include '../../../header.php';
 
 if(isset($_GET['numThem'])){
-    $numThem = intval($_GET['numThem']);
-    $data = sql_select("THEMATIQUE", "libThem", "numThem = $numThem");
-    $libThem = $data[0]['libThem'];
+    $numThem = $_GET['numThem'];
+    $libThem = sql_select("THEMATIQUE", "libThem", "numThem = $numThem")[0]['libThem'];
 }
 ?>
 
-<div class="container py-5">
-    <div class="alert alert-danger">
-        <h3>Attention !</h3>
-        <p>Êtes-vous sûr de vouloir supprimer la thématique : <strong><?php echo $libThem; ?></strong> ?</p>
-    </div>
-
-    <form action="/api/thematiques/delete.php" method="post">
-        <input type="hidden" name="numThem" value="<?php echo $numThem; ?>" />
-        
-        <div class="form-group mt-3">
-            <a href="list.php" class="btn btn-secondary">Non, annuler</a>
-            <button type="submit" class="btn btn-danger">Oui, supprimer définitivement</button>
+<!-- Bootstrap form to create a new statut -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Suppression Thématique</h1>
         </div>
-    </form>
+        <div class="col-md-12">
+            <!-- Form to create a new statut -->
+            <form action="<?php echo ROOT_URL . '/api/thematiques/delete.php' ?>" method="post">
+                <div class="form-group">
+                    <label for="libThem">Nom du thematiques</label>
+                    <input id="numThem" name="numThem" class="form-control" style="display: none" type="text" value="<?php echo($numThem); ?>" readonly="readonly" />
+                    <input id="libThem" name="libThem" class="form-control" type="text" value="<?php echo($libThem); ?>" readonly="readonly" disabled />
+                </div>
+                <br />
+                <div class="form-group mt-2">
+                    <a href="list.php" class="btn btn-primary">List</a>
+                    <button type="submit" class="btn btn-danger">Delete ?</button>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
-
-<?php include '../../../footer.php'; ?>
