@@ -77,6 +77,9 @@ if (!$article) {
 </article>
 
 <?php 
-// Inclusion du footer
+// Prépare la variable attendue par la section commentaires
+$numArt = $id;
+// Inclure la vue des commentaires (chemin relatif depuis articles/)
+include_once '../comments/commentaire.php';
 require_once '../../../footer.php'; 
 ?>
