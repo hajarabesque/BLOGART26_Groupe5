@@ -29,28 +29,32 @@ $thematiques = sql_select("THEMATIQUE", "*");
                     </tr>
                 </thead>
                 <tbody>
+            
+                    <?php 
                     /**
                      * BOUCLE FOREACH :
                      * PHP parcourt chaque thématique trouvée en base de données.
                      * Pour chaque ligne, on crée une rangée <tr> dans le tableau.
                      */
-                    <?php foreach($thematiques as $thematique){ ?>
+                    
+                    foreach($thematiques as $thematique){ ?>
                         <tr>
                             <td><?php echo($thematique['numThem']); ?></td>
                             
                             <td><strong><?php echo htmlspecialchars($thematique['libThem']); ?></strong></td>
                             
                             <td class="text-center">
-                                /**
-                                 * LIENS DYNAMIQUES :
-                                 * On injecte l'ID (numThem) dans l'URL pour que les pages 
-                                 * de destination sachent quelle thématique traiter.
-                                 */
+                            
                                 <a href="edit.php?numThem=<?php echo($thematique['numThem']); ?>" class="btn btn-primary btn-sm">Modifier</a>
                                 <a href="delete.php?numThem=<?php echo($thematique['numThem']); ?>" class="btn btn-danger btn-sm">Supprimer</a>
                             </td>
                         </tr>
-                    <?php } ?>
+                    <?php }  /**
+                                 * LIENS DYNAMIQUES :
+                                 * On injecte l'ID (numThem) dans l'URL pour que les pages 
+                                 * de destination sachent quelle thématique traiter.
+                                 */ ?>
+                    
                 </tbody>
             </table>
 

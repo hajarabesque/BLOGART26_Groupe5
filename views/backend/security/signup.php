@@ -34,8 +34,8 @@ if (isset($_POST['btn'])) {
     if ($password !== $confirm) {
         $errors[] = "Les mots de passe ne correspondent pas.";
     }
-    if (strlen($prenom) < 6) {
-        $errors[] = "Le prénom doit faire au moins 6 caractères.";
+    if (strlen($pseudo) < 6) {
+        $errors[] = "Le pseudo doit faire au moins 6 caractères.";
     }
 
     /**
@@ -114,12 +114,12 @@ if (isset($_POST['btn'])) {
             <div class="form-group">
                 <label for="pseudo">Pseudo</label>
                 <input type="text" id="pseudo" name="pseudo" value="<?= $pseudo ?? '' ?>" required>
+                <span class="form-hint">(Min. 6 caractères)</span>
             </div>
             
             <div class="form-group">
                 <label for="prenom">Prénom</label>
                 <input type="text" id="prenom" name="prenom" required>
-                <span class="form-hint">(Min. 6 caractères)</span>
             </div>
 
             <div class="form-group">

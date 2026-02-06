@@ -35,12 +35,13 @@ if (isset($_GET['numMemb'])) {
             </div>
 
             <form action="<?php echo ROOT_URL; ?>/api/members/delete.php" method="post">
-                
+                <?php
                 /**
                  * CHAMP CACHÉ (HIDDEN) :
                  * C'est la seule donnée envoyée au serveur. 
                  * Les champs "disabled" ci-dessous ne sont PAS transmis lors de la soumission.
                  */
+                ?>
                 <input type="hidden" name="numMemb" value="<?php echo $membre['numMemb']; ?>">
 
                 <div class="form-group mb-3">

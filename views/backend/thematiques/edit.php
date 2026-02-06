@@ -29,16 +29,17 @@ if(isset($_GET['numThem'])){
     header('Location: list.php');
     exit();
 }
+
+  /**
+     * FORMULAIRE DE MISE À JOUR :
+     * - action : Envoie vers l'API d'update.
+     * - method="post" : Standard pour la modification de données.
+     */
 ?>
 
 <div class="container py-5">
     <h1>Modification thématique</h1>
 
-    /**
-     * FORMULAIRE DE MISE À JOUR :
-     * - action : Envoie vers l'API d'update.
-     * - method="post" : Standard pour la modification de données.
-     */
     <form action="/api/thematiques/update.php" method="post" class="mt-4">
         
         <input type="hidden" name="numThem" value="<?php echo $numThem; ?>" />

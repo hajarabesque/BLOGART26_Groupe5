@@ -11,7 +11,6 @@
     
     <link rel="stylesheet" href="src/css/header.css" />
     <link rel="stylesheet" href="src/css/index.css" />
-    <link rel="shortcut icon" type="image/x-icon" href="src/images/article1.png" />
 </head>
 
 <?php

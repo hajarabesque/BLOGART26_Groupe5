@@ -90,9 +90,11 @@ $statuts = sql_select("STATUT", "*");
     </div>
 </div>
 
-/**
+<?php/**
  * SCRIPT JS : Basculer entre le type 'password' et 'text'
  */
+?>
+
 <script>
 function toggle(id) {
     var x = document.getElementById(id);

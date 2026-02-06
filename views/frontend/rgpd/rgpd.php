@@ -78,7 +78,7 @@ require_once '../../../header.php';
  * 2. PIED DE PAGE
  * ==========================================================
  */
-require_once 'footer.php'; 
+require_once '../../../footer.php'; 
 
 // Message de debug (à supprimer une fois le projet fini)
 echo ("<p class='text-center text-muted small'>Page générée : RGPD</p>");

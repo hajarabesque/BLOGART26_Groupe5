@@ -13,20 +13,23 @@ include '../../../header.php';
     <div class="row">
         <div class="col-md-12">
             <h1>Création nouvelle Thématique</h1>
-
+<?php
             /**
              * FORMULAIRE DE SAISIE :
              * - action : Vers quel fichier envoyer les données (l'API de traitement).
              * - method="post" : Pour envoyer les données de manière sécurisée (non visible dans l'URL).
              */
+            ?>
             <form action="/api/thematiques/create.php" method="post" class="mt-4">
                 
                 <div class="form-group">
                     <label for="libThem">Nom de la thématique</label>
+                    <?php
                     /**
                      * autofocus : Le curseur se place directement ici au chargement de la page.
                      * required : Empêche l'envoi du formulaire si le champ est vide.
                      */
+                     ?>
                     <input id="libThem" name="libThem" class="form-control" type="text" autofocus required />
                 </div>
 

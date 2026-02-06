@@ -40,11 +40,12 @@ if (isset($_GET['numMemb'])) {
 
     <div class="col-md-8 offset-md-2 mt-4">
         <form action="<?php echo ROOT_URL; ?>/api/members/update.php" method="post">
-            
+            <?php
             /**
              * L'ID CACHÉ : 
              * Indispensable pour la clause WHERE de ton UPDATE SQL.
              */
+            ?>
             <input type="hidden" name="numMemb" value="<?php echo $membre['numMemb']; ?>">
 
             <div class="form-group mb-3">
@@ -68,12 +69,13 @@ if (isset($_GET['numMemb'])) {
                 <input type="email" name="eMailMemb" class="form-control" value="<?php echo $membre['eMailMemb']; ?>" required>
                 <?php if(isset($err['email'])): ?><span class="text-danger small"><?php echo $err['email']; ?></span><?php endif; ?>
             </div>
-
+                <?php
             /**
              * GESTION DU MOT DE PASSE :
              * Contrairement à la création, ici le mot de passe est OPTIONNEL.
              * L'API ne doit le hacher et le mettre à jour que s'il n'est pas vide.
              */
+                 ?>
             <div class="form-group mb-3">
                 <label>Nouveau Password (laisser vide pour conserver l'actuel)</label>
                 <div class="input-group">
@@ -88,11 +90,12 @@ if (isset($_GET['numMemb'])) {
             <div class="form-group mb-4">
                 <label>Rang / Statut :</label>
                 <select name="numStat" class="form-control">
-                    <?php foreach($statuts as $statut): ?>
+                    <?php foreach($statuts as $statut): 
                         /**
                          * L'attribut 'selected' permet de pré-cocher le statut 
                          * actuel du membre dans la liste.
                          */
+                        ?>
                         <option value="<?php echo $statut['numStat']; ?>" <?php echo ($membre['numStat'] == $statut['numStat']) ? 'selected' : ''; ?>>
                             <?php echo $statut['libStat']; ?>
                         </option>
@@ -107,10 +110,11 @@ if (isset($_GET['numMemb'])) {
         </form>
     </div>
 </div>
-
+<?php
 /**
  * JS : Permet de voir les caractères du mot de passe en changeant le type de l'input
  */
+?>
 <script>
 function toggle(id) {
     var x = document.getElementById(id);

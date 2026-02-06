@@ -56,12 +56,13 @@ $membres = sql_select("MEMBRE INNER JOIN STATUT ON MEMBRE.numStat = STATUT.numSt
                 
                 <a href="edit.php?numMemb=<?php echo $membre['numMemb']; ?>" 
                    class="btn btn-outline-warning btn-sm mb-1 d-block">Modifier</a>
-                
+                <?php
                 /**
                  * SÉCURITÉ DE SUPPRESSION :
                  * On vérifie si le membre est un Administrateur (numStat == 1).
                  * Si oui, on désactive le bouton pour éviter de supprimer le seul accès admin !
                  */
+                ?>
                 <?php if ($membre['numStat'] == 1): ?>
                     <button class="btn btn-outline-secondary btn-sm d-block w-100" disabled title="Impossible de supprimer un administrateur">Supprimer</button>
                 <?php else: ?>

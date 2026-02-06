@@ -33,12 +33,15 @@ if(isset($_GET['numThem'])){
         <h3>Attention !</h3>
         <p>Êtes-vous sûr de vouloir supprimer la thématique : <strong><?php echo htmlspecialchars($libThem); ?></strong> ?</p>
     </div>
-
+<?php
     /**
      * FORMULAIRE DE CONFIRMATION :
      * On utilise 'post' pour l'action de suppression réelle afin de respecter 
      * les standards de sécurité (ne jamais supprimer via un lien 'get' direct).
      */
+?>
+
+
     <form action="/api/thematiques/delete.php" method="post">
         <input type="hidden" name="numThem" value="<?php echo $numThem; ?>" />
         
