@@ -11,6 +11,7 @@
     
     <link rel="stylesheet" href="src/css/header.css" />
     <link rel="stylesheet" href="src/css/index.css" />
+    <link rel="stylesheet" href="src/css/style.css" />
 </head>
 
 <?php

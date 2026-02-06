@@ -81,10 +81,10 @@ $secondaires = array_slice($articlesIndex, 1);
     </section>
 
     <!-- SECTION ACTUALITÉS : Affichage dynamique des articles de la BDD -->
-    <section class="page-section bg-light actualites" id="portfolio">
-        <div class="container px-4 px-lg-5">
+    <section class="page-section bg-light py-5  actualites" id="portfolio">
+        <div class="container px-5 px-lg-5">
             <h2 class="text-center mt-0 titre-section">Actualités</h2>
-            <div class="row g-5 mt-4">
+            <div class="row g-5 mt-5">
                 
                 <!-- COLONNE GAUCHE (7/12) : L'article principal (le plus récent) -->
                 <div class="col-lg-7"> 
@@ -145,7 +145,110 @@ $secondaires = array_slice($articlesIndex, 1);
             </div>
         </div>
     </section>
+
+
+
+
+
+
+
+
+
+<section class="discover">
+
+
+           <img src="/src/images/Dark Blue Paper Texture Textured Background Wallpaper Image For Free Download - Pngtree.png"
+           alt="" class="deco deco-paper-left">
+
+
+           <img src="/src/images/red-paper.png"
+           alt=""   class="deco deco-red-diagonal"/>
+
+
+           <img src="/src/images/star.png" alt="" class="deco deco-star star-top-left">
+           <img src="/src/images/star.png" alt="" class="deco deco-star star-top-right">
+           <img src="/src/images/star.png" alt="" class="deco deco-star star-bottom-right">
+
+
+           <div class="lace-strip">
+           <img src="/src/images/red.png" alt="">
+           <img src="/src/images/red.png" alt="">
+           <img src="/src/images/red.png" alt="">
+           </div>
+
+
+           <div class="deco deco-lace-bottom">
+           <img src="/src/images/redbas.png" alt="">
+           <img src="/src/images/redbas.png" alt="">
+           <img src="/src/images/redbas.png" alt="">
+           </div>
+          
+           <div class="discover-title">
+              
+               <img src="src/images/titre.png"
+               alt="" class="deco deco-title-bg">
+              
+               <h1 class="title">DÉCOUVRIR DES ARTISTES</h1>
+               </div>
+
+
+           <div class="carousel-wrapper">
+               <div class="carousel">
+
+
+                   <div class="vinyl-container">
+                       <div class="vinyl left" data-index="0" data-audio="/src/Audio/j999de.mp3">
+                           <img src="/src/images/tht.png" alt="j999de">
+                           <p>j999de</p>
+                       </div>
+
+
+                   <div class="vinyl center" data-index="1" data-audio="/src/Audio/Web.mp3">
+                       <img src="/src/images/b.png" alt="Thats_web">
+                           <p>Thats_web</p>
+                       </div>
+
+
+                   <div class="vinyl right" data-index="2" data-audio="/src/Audio/Tvrzan.mp3">
+                       <img src="/src/images/pleease.png" alt="TVRZAN">
+                           <p>TVRZAN</p>
+                       </div>
+                   </div>
+
+
+                  
+                   <div class="controls">
+                      
+                       <button class="arrow arrow-left" aria-label="Artiste précédent">◀</button>
+                           <div class="player-ui">
+
+
+                       <button class="cassette-btn" aria-label="Lecture musique">
+                           <img src="/src/images/cassette.png" alt="Lire la musique">
+                       </button>
+
+
+            
+
+                       </div>
+
+
+                       <button class="arrow arrow-right" aria-label="Artiste suivant">▶</button>
+                   </div>
+
+
+               </div>
+           </div>
+
+
+           <audio id="player"></audio>
+       </section>
+
+
+<script src="src/js/script.js"></script>
+
 </main>
+
 
 <?php 
 // Inclusion du pied de page (footer) qui ferme les balises </body> et </html>

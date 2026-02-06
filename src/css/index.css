@@ -206,14 +206,24 @@
     }
 }
 
+
+
+
+
+
+
 /* Style global */
 .actualites {
-    font-family: 'Arial', sans-serif; /* Ou Archivo Black selon ton choix */
+    margin-top: 20px;
+    font-family: 'Arial', sans-serif; 
+    /* Ou Archivo Black selon ton choix */
+
 }
 
 .titre-section {
     font-size: 4rem;
     text-align: center;
+    margin-top: 20px;;
 }
 
 .carre-bleu-grand {
@@ -243,6 +253,7 @@
     text-decoration: none;
     font-weight: bold;
     transition: 0.3s;
+
 }
 
 .btn-index-actu:hover {
