@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
 /**
  * ==========================================================
  * 1. INITIALISATION ET SÉCURITÉ (BACKEND)
@@ -6,6 +7,10 @@
  */
 // Chargement de la configuration générale et de la connexion à la base de données
 require_once $_SERVER['DOCUMENT_ROOT'] . '/config.php';
+=======
+require_once $_SERVER['DOCUMENT_ROOT'] . '/BLOGART26/config.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/BLOGART26/functions/ctrlSaisies.php';
+>>>>>>> e8486efd7714ef339d3770a9c34db183bc2cacbc
 
 // Chargement des fonctions de contrôle pour nettoyer les entrées utilisateur
 require_once $_SERVER['DOCUMENT_ROOT'] . '/BLOGART26/functions/ctrlSaisies.php';

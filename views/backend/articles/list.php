@@ -47,3 +47,4 @@ $articles = sql_select("ARTICLE a LEFT JOIN THEMATIQUE t ON a.numThem = t.numThe
 <?php
 include '../../../footer.php'; // contains the footer
 ?>
+

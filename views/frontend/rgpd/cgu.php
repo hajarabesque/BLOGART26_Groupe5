@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
 require_once '../../../header.php';
 ?>
 
@@ -6,6 +7,12 @@ require_once '../../../header.php';
 
 
 
+=======
+require_once $_SERVER['DOCUMENT_ROOT'] . '/BLOGART26/config.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/BLOGART26/functions/ctrlSaisies.php';
+?>
+
+>>>>>>> e8486efd7714ef339d3770a9c34db183bc2cacbc
 <div class="container mt-5 mb-5">
     <div class="row">
         <div class="col-md-12">
@@ -62,12 +69,21 @@ require_once '../../../header.php';
             </p>
             
             <div class="mt-5">
+<<<<<<< HEAD
                 <a href="/index.php" class="btn btn-primary">Retour à l'accueil</a>
+=======
+                <a href="index.php" class="btn btn-primary">Retour à l'accueil</a>
+>>>>>>> e8486efd7714ef339d3770a9c34db183bc2cacbc
             </div>
         </div>
     </div>
 </div>
 
 <?php
+<<<<<<< HEAD
 require_once '../../../footer.php'; 
 ?>
+=======
+require_once $_SERVER['DOCUMENT_ROOT'] . '/BLOGART26/views/footer.php';
+?>
+>>>>>>> e8486efd7714ef339d3770a9c34db183bc2cacbc

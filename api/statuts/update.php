@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
 // ============================================================
 // INCLUSION DES FICHIERS DE CONFIGURATION ET DES FONCTIONS
 // ============================================================
@@ -45,6 +46,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo "Erreur lors de la modification : " . $e->getMessage();
     }
 } else {
+=======
+require_once $_SERVER['DOCUMENT_ROOT'] . '/BLOGART26/functions/query/update.php';
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $numStat = $_POST['numStat'];
+    $libStat = $_POST['libStat'];
+
+    sql_update("STATUTS", ["libStat" => $libStat], "numStat = '$numStat'");
+
+    // Exécution sécurisée de la condition
+    $stmt = $pdo->prepare("UPDATE STATUTS SET libStat = :libStat WHERE numStat = :numStat");
+    $stmt->execute([
+        ':libStat' => $libStat,
+        ':numStat' => $numStat
+    ]);
+
+>>>>>>> e8486efd7714ef339d3770a9c34db183bc2cacbc
     header('Location: ../../views/backend/statuts/list.php');
     exit();
 }

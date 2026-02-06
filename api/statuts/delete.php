@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
 /**
  * ==========================================================
  * 1. PRÉPARATION ET RÉCUPÉRATION (BACKEND)
@@ -9,6 +10,10 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/BLOGART26/config.php';
 
 // Chargement des fonctions de nettoyage (sécurité)
 require_once '../../functions/ctrlSaisies.php';
+=======
+require_once $_SERVER['DOCUMENT_ROOT'] . '/BLOGART26/config.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/BLOGART26/functions/ctrlSaisies.php';
+>>>>>>> e8486efd7714ef339d3770a9c34db183bc2cacbc
 
 /**
  * RÉCUPÉRATION DE L'IDENTIFIANT :
