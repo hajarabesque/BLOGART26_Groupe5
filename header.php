@@ -1,3 +1,8 @@
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+?>
 <!DOCTYPE html>
 <html lang="fr-FR">
 <head>
@@ -53,12 +58,21 @@ try {
         <a href="/views/frontend/Thematique.php" class="text-white text-decoration-none fw-bold">THEMATIQUES</a>
 
     </div>
-
-    <div class="nav-block bg-blue px-4 d-flex align-items-center gap-3" style="background: #0044ff;">
-        <a href="/views/backend/security/login.php" class="text-white text-decoration-none">Login</a>
-        <a href="/views/backend/security/signup.php" class="btn btn-outline-light btn-sm">Sign up</a>
-        
-        <a href="/views/frontend/search.php" class="btn btn-outline-light btn-sm">Rechercher</a>
+<div class="nav-block px-4 d-flex align-items-center gap-3" style="background: #0044ff;">
+    <?php if (isset($_SESSION['user'])): ?>
+        <!-- ÉLÉMENTS SI CONNECTÉ -->
+        <span class="text-white me-2"><?= htmlspecialchars($_SESSION['user']['pseudo'] ?? '') ?></span>
+        <!-- Bouton Admin (Dashboard) -->
         <a href="/views/backend/dashboard.php" class="btn btn-outline-light btn-sm">Admin</a>
-    </div>
+        <!-- Bouton Déconnexion -->
+        <a href="/api/security/disconnect.php" class="btn btn-outline-light btn-sm ms-2">Déconnexion</a>
+    <?php else: ?>
+        <!-- ÉLÉMENTS SI DÉCONNECTÉ -->
+        <a href="/views/backend/security/login.php" class="text-white text-decoration-none fw-bold">Login</a>
+        <a href="/views/backend/security/signup.php" class="btn btn-outline-light btn-sm ms-2">Sign up</a>
+    <?php endif; ?>
+
+    <!-- Bouton Rechercher dans le même bloc bleu -->
+    <a href="/views/frontend/search.php" class="btn btn-outline-light btn-sm ms-3">Rechercher</a>
+</div>
 </nav>
