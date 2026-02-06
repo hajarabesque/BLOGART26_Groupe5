@@ -1,11 +1,12 @@
 <?php
+// Inclut le header (démarre la session et initialise $db)
 include '../../header.php';
-session_start();
 
-if (!isset($_SESSION["user_id"])) {
-    header("Location: login.php");
-    exit;
-    require_once "db.php";
+// Vérification simple : on attend la présence de $_SESSION['user'] définie à l'authentification
+if (!isset($_SESSION['user'])) {
+    // Redirection vers la page de login du backend
+    header('Location: /views/backend/security/login.php');
+    exit();
 }
 ?>
 
@@ -32,17 +33,11 @@ if (!isset($_SESSION["user_id"])) {
                         <tr>
                             <td>Statuts</td>
                             <td>
-<<<<<<< HEAD
                                 <a href="/views/backend/statuts/list.php" class="btn btn-primary">List</a>
                                 <a href="/views/backend/statuts/create.php" class="btn btn-success">Create</a>
-                                <a href="/views/backend/statuts/edit.php" class="btn btn-warning ">Edit</a>
-                                <a href="/views/backend/statuts/delete.php" class="btn btn-danger">Delete</a>
-=======
-                                <a href="/BLOGART26/views/backend/statuts/list.php" class="btn btn-primary">List</a>
-                                <a href="/BLOGART26/views/backend/statuts/create.php" class="btn btn-success">Create</a>
-                                <a href="/BLOGART26/views/backend/statuts/edit.php" class="btn btn-warning disabled">Edit</a>
-                                <a href="/BLOGART26/views/backend/statuts/delete.php" class="btn btn-danger disabled">Delete</a>
->>>>>>> e8486efd7714ef339d3770a9c34db183bc2cacbc
+                                <a href="/views/backend/statuts/edit.php" class="btn btn-warning disabled">Edit</a>
+                                <a href="/views/backend/statuts/delete.php" class="btn btn-danger disabled">Delete</a>
+
                             </td>
                             <td>
                                 <p>Exemple fourni, s'y référer pour les autres CRUD</p>
@@ -51,95 +46,63 @@ if (!isset($_SESSION["user_id"])) {
                         <tr>
                             <td>Membres</td>
                             <td>
-<<<<<<< HEAD
+
                                 <a href="/views/backend/members/list.php" class="btn btn-primary ">List</a>
                                 <a href="/views/backend/members/create.php" class="btn btn-success ">Create</a>
                                 <a href="/views/backend/members/edit.php" class="btn btn-warning ">Edit</a>
                                 <a href="/views/backend/members/delete.php" class="btn btn-danger ">Delete</a>
-=======
-                                <a href="/BLOGART26/views/backend/members/list.php" class="btn btn-primary">List</a>
-                                <a href="/BLOGART26/views/backend/members/create.php" class="btn btn-success">Create</a>
-                                <a href="/BLOGART26/views/backend/members/edit.php" class="btn btn-warning disabled">Edit</a>
-                                <a href="/BLOGART26/views/backend/members/delete.php" class="btn btn-danger disabled">Delete</a>
->>>>>>> e8486efd7714ef339d3770a9c34db183bc2cacbc
+
                             </td>
                             <td>Pour tous les membres : Inscription, connexion, sécurité et captcha</td>
                         </tr>
                         <tr>
                             <td>Articles</td>
                             <td>
-<<<<<<< HEAD
-                                <a href="/views/backend/articles/list.php" class="btn btn-primary ">List</a>
+                                <a href="/views/backend/articles/list.php" class="btn btn-primary">List</a>
                                 <a href="/views/backend/articles/create.php" class="btn btn-success">Create</a>
-                                <a href="/views/backend/articles/edit.php" class="btn btn-warning disabled ">Edit</a>
+                                <a href="/views/backend/articles/edit.php" class="btn btn-warning disabled">Edit</a>
                                 <a href="/views/backend/articles/delete.php" class="btn btn-danger disabled">Delete</a>
-=======
-                                <a href="/BLOGART26/views/backend/articles/list.php" class="btn btn-primary">List</a>
-                                <a href="/BLOGART26/views/backend/articles/create.php" class="btn btn-success">Create</a>
-                                <a href="/BLOGART26/views/backend/articles/edit.php" class="btn btn-warning disabled">Edit</a>
-                                <a href="/BLOGART26/views/backend/articles/delete.php" class="btn btn-danger disabled">Delete</a>
->>>>>>> e8486efd7714ef339d3770a9c34db183bc2cacbc
                             </td>
                             <td>En même temps que l'article : image à intégrer, gestion des mots-clés associés</td>
                         </tr>
                         <tr>
                             <td>Thématiques</td>
                             <td>
-                                <a href="/BLOGART26/views/backend/thematiques/list.php" class="btn btn-primary">List</a>
-                                <a href="/BLOGART26/views/backend/thematiques/create.php" class="btn btn-success">Create</a>
-                                <a href="/BLOGART26/views/backend/thematiques/edit.php" class="btn btn-warning disabled">Edit</a>
-                                <a href="/BLOGART26/views/backend/thematiques/delete.php" class="btn btn-danger disabled">Delete</a>
+                                <a href="/views/backend/thematiques/list.php" class="btn btn-primary">List</a>
+                                <a href="/views/backend/thematiques/create.php" class="btn btn-success">Create</a>
+                                <a href="/views/backend/thematiques/edit.php" class="btn btn-warning disabled">Edit</a>
+                                <a href="/views/backend/thematiques/delete.php" class="btn btn-danger disabled">Delete</a>
                             </td>
                             <td></td>
                         </tr>
                         <tr>
                             <td>Commentaires</td>
                             <td>
-<<<<<<< HEAD
-                                <a href="/views/backend/comments/list.php" class="btn btn-primary  disabled">List</a>
-                                <a href="/views/backend/comments/create.php" class="btn btn-success  disabled">Create</a>
-                                <a href="/views/backend/comments/edit.php" class="btn btn-warning disabled ">Edit</a>
+
+                                <a href="/views/backend/comments/list.php" class="btn btn-primary">List</a>
+                                <a href="/views/backend/comments/create.php" class="btn btn-success">Create</a>
+                                <a href="/views/backend/comments/edit.php" class="btn btn-warning disabled">Edit</a>
                                 <a href="/views/backend/comments/delete.php" class="btn btn-danger disabled">Delete</a>
-=======
-                                <a href="/BLOGART26/views/backend/comments/list.php" class="btn btn-primary">List</a>
-                                <a href="/BLOGART26/views/backend/comments/create.php" class="btn btn-success">Create</a>
-                                <a href="/BLOGART26/views/backend/comments/edit.php" class="btn btn-warning disabled">Edit</a>
-                                <a href="/BLOGART26/views/backend/comments/delete.php" class="btn btn-danger disabled">Delete</a>
->>>>>>> e8486efd7714ef339d3770a9c34db183bc2cacbc
                             </td>
                             <td>Gestion côté front et côté back, modération. Utilisation de mise en forme (emojies...)</td>
                         </tr>
                         <tr>
                             <td>Likes</td>
                             <td>
-<<<<<<< HEAD
-                                <a href="/views/backend/likes/list.php" class="btn btn-primary  disabled">List</a>
-                                <a href="/views/backend/likes/create.php" class="btn btn-success disabled">Create</a>
+                                <a href="/views/backend/likes/list.php" class="btn btn-primary">List</a>
+                                <a href="/views/backend/likes/create.php" class="btn btn-success">Create</a>
                                 <a href="/views/backend/likes/edit.php" class="btn btn-warning disabled">Edit</a>
                                 <a href="/views/backend/likes/delete.php" class="btn btn-danger disabled">Delete</a>
-=======
-                                <a href="/BLOGART26/views/backend/likes/list.php" class="btn btn-primary">List</a>
-                                <a href="/BLOGART26/views/backend/likes/create.php" class="btn btn-success">Create</a>
-                                <a href="/BLOGART26/views/backend/likes/edit.php" class="btn btn-warning disabled disabled">Edit</a>
-                                <a href="/BLOGART26/views/backend/likes/delete.php" class="btn btn-danger disabled disabled">Delete</a>
->>>>>>> e8486efd7714ef339d3770a9c34db183bc2cacbc
                             </td>
                             <td>Utilisation de JS</td>
                         </tr>
                         <tr>
                             <td>Mot-clés</td>
                             <td>
-<<<<<<< HEAD
                                 <a href="/views/backend/keywords/list.php" class="btn btn-primary">List</a>
-                                <a href="/views/backend/keywords/create.php" class="btn btn-success ">Create</a>
+                                <a href="/views/backend/keywords/create.php" class="btn btn-success">Create</a>
                                 <a href="/views/backend/keywords/edit.php" class="btn btn-warning disabled">Edit</a>
                                 <a href="/views/backend/keywords/delete.php" class="btn btn-danger disabled">Delete</a>
-=======
-                                <a href="/BLOGART26/views/backend/keywords/list.php" class="btn btn-primary">List</a>
-                                <a href="/BLOGART26/views/backend/keywords/create.php" class="btn btn-success">Create</a>
-                                <a href="/BLOGART26/views/backend/keywords/edit.php" class="btn btn-warning disabled">Edit</a>
-                                <a href="/BLOGART26/views/backend/keywords/delete.php" class="btn btn-danger disabled">Delete</a>
->>>>>>> e8486efd7714ef339d3770a9c34db183bc2cacbc
                             </td>
                             <td></td>
                         </tr>

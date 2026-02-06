@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-=======
+
 <?php
 require_once '../../config.php';
 require_once '../../functions/ctrlSaisies.php';
@@ -26,4 +25,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 
->>>>>>> e8486efd7714ef339d3770a9c34db183bc2cacbc
+

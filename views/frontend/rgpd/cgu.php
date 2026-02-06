@@ -1,89 +1,85 @@
 <?php
-<<<<<<< HEAD
-require_once '../../../header.php';
+/**
+ * ==========================================================
+ * 1. INCLUSIONS ET CONFIGURATION
+ * ==========================================================
+ */
+
+// Inclusion du header (Connexion DB + Menu Bootstrap)
+// Note : Le premier require est commenté car il semble y avoir un doublon dans ton code
+require_once '../../../header.php'; 
 ?>
 
+<div class="container py-5 mt-5">
+    <h1 class="titre-page mb-5">Politique de Confidentialité (RGPD)</h1>
 
-
-
-
-=======
-require_once $_SERVER['DOCUMENT_ROOT'] . '/BLOGART26/config.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/BLOGART26/functions/ctrlSaisies.php';
-?>
-
->>>>>>> e8486efd7714ef339d3770a9c34db183bc2cacbc
-<div class="container mt-5 mb-5">
     <div class="row">
-        <div class="col-md-12">
-            <h1 class="text-center">Conditions Générales d'Utilisation (CGU)</h1>
-            <p class="text-muted text-center">En vigueur au <?php echo date('d/m/Y'); ?></p>
-            <hr>
-
-            <h3>1. Présentation du site</h3>
-            <p>
-                Le site <strong>BlogArt 2026</strong> a pour objet la diffusion d'articles culturels et la possibilité pour les internautes de poster des commentaires. 
-                L'accès au site et son utilisation impliquent l'acceptation sans réserve des présentes CGU.
-            </p>
-
-            <h3>2. Responsabilité de l'Éditeur</h3>
-            <p>
-                L'éditeur s'efforce de fournir des informations précises. Toutefois, il ne peut être tenu responsable des omissions ou des carences dans la mise à jour des informations.
-                Le site est normalement accessible à tout moment, sauf interruption pour maintenance.
-            </p>
-
-            <h3>3. Espace Commentaires et Modération</h3>
-            <p>
-                Les utilisateurs peuvent déposer des commentaires sur les articles. 
-                <strong>Important :</strong> Conformément à la Loi du 29 juillet 1881, les propos injurieux, diffamatoires, racistes ou violents sont strictement interdits.
-            </p>
-            <ul>
-                <li>L'éditeur se réserve le droit de supprimer tout commentaire ne respectant pas ces règles sans mise en demeure préalable.</li>
-                <li>La responsabilité de l'auteur du message peut être engagée en cas de propos illégaux.</li>
-            </ul>
-
-            <h3>4. Propriété intellectuelle</h3>
-            <p>
-                L'ensemble des contenus (textes, images, structure du blog) est protégé par le droit d'auteur. 
-                Toute reproduction, représentation ou modification, totale ou partielle, sans l'accord écrit de l'auteur est interdite et constitue une contrefaçon.
-            </p>
-
-            <h3>5. Protection des données personnelles (RGPD)</h3>
-            <p>
-                Conformément au Règlement Général sur la Protection des Données (RGPD), les informations collectées (pseudos, emails dans les formulaires) sont nécessaires au fonctionnement du service de commentaires.
-            </p>
-            <ul>
-                <li>Vous disposez d'un droit d'accès, de rectification et de suppression de vos données.</li>
-                <li>Pour exercer ce droit, contactez l'administrateur via la page de contact.</li>
-                <li>Le consentement est recueilli de manière claire lors du dépôt d'un commentaire.</li>
-            </ul>
-
-            <h3>6. Cookies</h3>
-            <p>
-                La navigation sur le site peut provoquer l'installation de cookies sur l'ordinateur de l'utilisateur. Un cookie est un fichier de petite taille qui enregistre des informations relatives à la navigation mais ne permet pas l'identification de l'utilisateur.
-            </p>
-
-            <h3>7. Droit applicable</h3>
-            <p>
-                Tout litige en relation avec l'utilisation du site BlogArt 2026 est soumis au droit français.
-            </p>
+        <div class="col-lg-10 offset-lg-1">
             
-            <div class="mt-5">
-<<<<<<< HEAD
+            <section class="mb-5">
+                <h2 class="h4 fw-bold text-primary">1. Introduction</h2>
+                <p>Dans le cadre de l'utilisation du site <strong>Bordeaux Musique Moderne</strong>, nous sommes amenés à collecter et traiter certaines de vos données personnelles. Cette page a pour but de vous informer en toute transparence sur la manière dont nous gérons vos données, conformément au Règlement Général sur la Protection des Données (RGPD).</p>
+            </section>
+
+            <section class="mb-5">
+                <h2 class="h4 fw-bold text-primary">2. Gestion des Cookies</h2>
+                <p>Comme vous l'avez vu lors de votre arrivée sur le site, nous utilisons une fenêtre de consentement pour les cookies.</p>
+                <ul>
+                    <li><strong>Cookie de consentement :</strong> Ce cookie sert uniquement à mémoriser si vous avez cliqué sur "Accepter" ou "Refuser" dans la bannière en bas de page.</li>
+                    <li><strong>Durée de conservation :</strong> Ce choix est mémorisé pendant 30 jours (via la fonction setcookie() de PHP).</li>
+                    <li><strong>Finalité :</strong> Éviter de vous afficher la bannière à chaque nouvelle page consultée.</li>
+                </ul>
+                <p class="small text-muted">Note : Si vous refusez les cookies, aucune donnée de navigation n'est conservée par notre site.</p>
+            </section>
+
+            
+
+[Image of GDPR data protection principles]
+
+
+            <section class="mb-5">
+                <h2 class="h4 fw-bold text-primary">3. Données collectées</h2>
+                <p>Nous ne collectons que les données strictement nécessaires :</p>
+                <ul>
+                    <li>Données de navigation (via cookies si acceptés).</li>
+                    <li>Informations envoyées via d'éventuels formulaires de contact (Nom, Email).</li>
+                </ul>
+                <p>Nous ne revendons jamais vos données à des tiers.</p>
+            </section>
+
+            <section class="mb-5 p-4 bg-light border-start border-primary border-4">
+                <h2 class="h4 fw-bold">4. Vos Droits</h2>
+                <p>Conformément à la loi "Informatique et Libertés", vous disposez des droits suivants :</p>
+                <ul>
+                    <li>Droit d'accès et de rectification de vos données.</li>
+                    <li>Droit à l'effacement (droit à l'oubli).</li>
+                    <li>Droit de retirer votre consentement aux cookies à tout moment en vidant le cache de votre navigateur.</li>
+                </ul>
+            </section>
+
+            
+
+            <section class="mb-5">
+                <h2 class="h4 fw-bold text-primary">5. Contact</h2>
+                <p>Pour toute question concernant vos données personnelles ou pour exercer vos droits, vous pouvez contacter le responsable du site à l'adresse suivante :</p>
+                <p class="fw-bold">contact@bordeaux-musique-moderne.fr</p>
+            </section>
+
+            <div class="text-center mt-5">
                 <a href="/index.php" class="btn btn-primary">Retour à l'accueil</a>
-=======
-                <a href="index.php" class="btn btn-primary">Retour à l'accueil</a>
->>>>>>> e8486efd7714ef339d3770a9c34db183bc2cacbc
             </div>
         </div>
     </div>
 </div>
 
-<?php
-<<<<<<< HEAD
+<?php 
+/**
+ * ==========================================================
+ * 2. PIED DE PAGE
+ * ==========================================================
+ */
 require_once '../../../footer.php'; 
-?>
-=======
-require_once $_SERVER['DOCUMENT_ROOT'] . '/BLOGART26/views/footer.php';
-?>
->>>>>>> e8486efd7714ef339d3770a9c34db183bc2cacbc
+
+// Message de debug (à supprimer une fois le projet fini)
+echo ("<p class='text-center text-muted small'>Page générée : RGPD</p>");
+?
