@@ -30,17 +30,14 @@ function loadCurrentTrack() {
   }
 }
 
-// 2. FONCTION POUR JOUER LE SON DU TIMBRE
 function playTimbre() {
-  timbre.currentTime = 0; // Remet le son au début pour pouvoir cliquer vite
+  timbre.currentTime = 0;
   timbre.play();
 }
 
 function stopPlayback() {
   player.pause();
-  // Retire la classe playing de tous les vinyles pour arrêter la rotation
   vinyls.forEach(v => v.classList.remove('playing'));
-  // Change l'image pour montrer la cassette prête à être jouée
   cassetteImg.src = '/src/images/cassette.png'; 
 }
 
@@ -49,7 +46,7 @@ updatePositions();
 loadCurrentTrack();
 
 rightArrow.addEventListener('click', () => {
-  playTimbre(); // Déclenche le timbre
+  playTimbre(); 
   positions.unshift(positions.pop());
   updatePositions();
   stopPlayback();
@@ -57,24 +54,24 @@ rightArrow.addEventListener('click', () => {
 });
 
 leftArrow.addEventListener('click', () => {
-  playTimbre(); // Déclenche le timbre
+  playTimbre(); 
   positions.push(positions.shift());
-  updatePositions(); // Correction du "x" qui était ici
+  updatePositions(); 
   stopPlayback();
   loadCurrentTrack();
 });
 
 cassetteBtn.addEventListener('click', () => {
-  playTimbre(); // Déclenche le timbre au clic
+  playTimbre(); 
   const vinyl = getCenterVinyl();
   
   if (player.paused) {
     loadCurrentTrack();
     player.play();
-    vinyl.classList.add('playing'); // Le disque commence à tourner
-    cassetteImg.src = '/src/images/cassettepause.png'; // L'image devient "pause"
+    vinyl.classList.add('playing'); 
+    cassetteImg.src = '/src/images/cassettepause.png'; 
   } else {
-    stopPlayback(); // Arrête la musique et la rotation
+    stopPlayback(); 
   }
 });
 

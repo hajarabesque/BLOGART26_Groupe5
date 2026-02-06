@@ -64,9 +64,9 @@
 }
 
 
-/* 1. Le conteneur gère UNIQUEMENT la position et la taille */
+
 .vinyl {
-  position: absolute; /* Assure-toi qu'ils sont en absolute pour le carrousel */
+  position: absolute; 
   top: 50%;
   left: 50%;
   transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
@@ -76,22 +76,20 @@
   justify-content: center;
 }
 
-/* 2. L'image à l'intérieur gère UNIQUEMENT la rotation */
+
 .vinyl img {
-  width: 300px; /* Ajuste selon tes besoins */
+  width: 300px; 
   height: 300px;
   border-radius: 50%;
-  /* On prépare l'animation sur l'image */
   animation: rotateDisc 4s linear infinite;
-  animation-play-state: paused; /* Arrêté par défaut */
+  animation-play-state: paused; 
 }
 
-/* 3. Quand le parent a la classe .playing, l'image tourne */
 .vinyl.playing img {
   animation-play-state: running;
 }
 
-/* 4. Les positions du carrousel (ne touchent pas à la rotation) */
+
 .vinyl.center {
   transform: translate(-50%, -50%) scale(1.2);
   opacity: 1;
@@ -111,7 +109,6 @@
 }
 
 
-/* Style du texte sous le vinyle */
 .vinyl p {
   margin-top: 16px;
   font-weight: bold;

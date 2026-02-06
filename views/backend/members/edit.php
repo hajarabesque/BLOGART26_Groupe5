@@ -69,6 +69,12 @@ if (isset($_GET['numMemb'])) {
                 <input type="email" name="eMailMemb" class="form-control" value="<?php echo $membre['eMailMemb']; ?>" required>
                 <?php if(isset($err['email'])): ?><span class="text-danger small"><?php echo $err['email']; ?></span><?php endif; ?>
             </div>
+
+            <!-- Confirmation de l'email : nécessaire pour l'API de mise à jour qui compare les deux champs -->
+            <div class="form-group mb-3">
+                <label>Confirmez l'eMail</label>
+                <input type="email" name="eMailMembConf" class="form-control" value="<?php echo $membre['eMailMemb']; ?>" required>
+            </div>
                 <?php
             /**
              * GESTION DU MOT DE PASSE :

@@ -34,7 +34,7 @@ require_once '../../../header.php';
 
             
 
-[Image of GDPR data protection principles]
+
 
 
             <section class="mb-5">

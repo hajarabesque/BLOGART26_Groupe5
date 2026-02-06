@@ -159,10 +159,3 @@ function sortSelect(selectElement) {
     options.forEach(option => selectElement.appendChild(option));
 }
 </script>
-
-
-<<<<<<< HEAD
-?>            
-=======
-?>            
->>>>>>> e8486efd7714ef339d3770a9c34db183bc2cacbc

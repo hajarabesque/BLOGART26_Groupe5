@@ -15,67 +15,34 @@ $showCookieModal = !isset($_COOKIE['cookie_consent']);
 
 <link rel="stylesheet" href="/src/css/footer.css">
 
-<!-- FOOTER : Conteneur principal avec image de fond -->
-<footer class="footer" style="background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('/src/images/vinyl.png') center/cover no-repeat; background-attachment: fixed;">
-    <div class="footer-container">
+<footer class="main-footer mt-5">
+
+    <div class="container d-flex mp-5 justify-content-center align-items-center">
         
-        <div class="footer-logo-section">
-            <img src="/src/images/logo2.png" alt="Logo" class="footer-logo">
-        </div>
+        <!-- Le rond bleu (image de fond appliquée en CSS sur ce div) -->
+        <div class="footer-label-center d-flex flex-column align-items-center justify-content-center">
+            
+            <!-- Logo blanc en haut -->
+            <img src="/src/images/logo2.png" alt="Logo" class="footer-logo mb-2">
 
-        <div class="footer-socials">
-            <h3>Nous suivre</h3>
-            <div class="social-icons">
-                <a href="#" class="icon-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="icon-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="icon-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            <!-- Réseaux Sociaux -->
+            <div class="social-box d-flex gap-3 mb-4">
+                <a href="#"><i class="bi bi-instagram fs-4"></i></a>
+                <a href="#"><i class="bi bi-facebook fs-4"></i></a>
+                <a href="#"><i class="bi bi-tiktok fs-4"></i></a>
             </div>
-        </div>
 
-        <div class="footer-legal">
-            <ul>
-                <li><a href="/mentions-legales.php">Mentions légales</a></li>
-                <li><a href="/views/frontend/rgpd/cgu.php">Conditions d'utilisation</a></li>
-                <li><a href="/views/frontend/rgpd/rgpd.php">Politique de confidentialité & Cookies</a></li>
-            </ul>
+       <div class="footer-links-grid">
+    <a href="mentions.php">Mentions légales</a>
+    <a href="/views/frontend/rgpd/rgpd.php">Politique RGPD</a>
+    <a href="views/frontend/rgpd/cgu.php">CGU</a>
+</div>
         </div>
-    </div>
-
-    <div class="footer-bottom">
-        <p>&copy; 2026 BlogArt. Tous droits réservés.</p>
     </div>
 </footer>
 
-<div class="modal fade" id="cookieModal" tabindex="-1" aria-labelledby="cookieModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="cookieModalLabel">🍪 Consentement aux Cookies</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            
-            <div class="modal-body">
-                <p>Nous utilisons des cookies pour améliorer votre expérience sur notre site. Ces cookies nous permettent de :</p>
-                <ul>
-                    <li>Mémoriser votre préférence</li>
-                    <li>Améliorer la performance du site</li>
-                    <li>Vous proposer du contenu personnalisé</li>
-                </ul>
-                <p><a href="/views/frontend/rgpd/rgpd.php">Lire notre politique de confidentialité</a></p>
-            </div>
-            
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" id="rejectCookies">Refuser</button>
-                <button type="button" class="btn btn-primary" id="acceptCookies">Accepter</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Import des icônes Bootstrap -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
 <script>
     /**

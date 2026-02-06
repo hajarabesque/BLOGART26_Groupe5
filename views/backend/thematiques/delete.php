@@ -14,7 +14,6 @@ if(isset($_GET['numThem'])){
     <div class="row">
         <div class="col-md-12">
             <h1>Suppression Thématique</h1>
-<<<<<<< HEAD
             <!-- Message d'avertissement -->
             <div class="alert alert-warning">
                 Attention : La suppression d'une thématique peut être impossible si elle est liée à des articles.

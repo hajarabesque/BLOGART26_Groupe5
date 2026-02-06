@@ -1,0 +1,43 @@
+
+.main-footer {
+    background-image: url('/src/images/vinyl.png');
+    background-color: #a5a5a5; /* La couleur grise de base */
+    
+    /* Mélange l'image et la couleur de fond */
+    background-blend-mode: multiply; 
+    
+    background-size: cover;
+    background-position: center;
+    padding: 100px 0;
+}
+
+/* Style du texte Newsletter */
+.news-text {
+    font-size: 1.8rem;
+    font-weight: 300;
+    text-transform: lowercase;
+}
+
+/* Style des icônes réseaux */
+.social-box a {
+    color: white;
+    transition: transform 0.2s;
+}
+.social-box a:hover {
+    transform: scale(1.2);
+}
+
+.footer-links-grid a {
+    color: white;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.footer-links-grid .full-width {
+    grid-column: span 3;
+    text-align: center;
+}
+
+.footer-logo {
+    width: 100px;
+}
